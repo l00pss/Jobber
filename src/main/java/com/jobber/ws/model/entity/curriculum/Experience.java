@@ -1,7 +1,5 @@
 package com.jobber.ws.model.entity.curriculum;
 
-import com.jobber.ws.model.entity.curriculum.position.DefaultPosition;
-import com.jobber.ws.model.entity.curriculum.position.OtherPosition;
 import com.jobber.ws.model.entity.curriculum.position.Position;
 
 import javax.persistence.Entity;
