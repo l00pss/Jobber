@@ -11,7 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
 @RequiredArgsConstructor
-@Profile("!prod")
+@Profile("prod")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Value("${service.security.secure-key-role}")

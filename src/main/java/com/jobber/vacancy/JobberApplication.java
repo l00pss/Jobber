@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EnableJpaRepositories("com.jobber.vacancy.dataAccess")
-@PropertySource("classpath:application-${spring.profiles.active:dev}.properties")
+@PropertySource("classpath:application-${spring.profiles.active:prod}.properties")
 public class JobberApplication {
 
     public static void main(String[] args) {
