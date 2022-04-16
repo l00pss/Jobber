@@ -6,7 +6,7 @@ import com.jobber.vacancy.factory.abstracts.AbstractVacancyFactory;
 import com.jobber.vacancy.model.dto.request.NewVacancyDTO;
 import com.jobber.vacancy.model.dto.response.vacancy.SimpleListVacancyDTO;
 import com.jobber.vacancy.model.dto.response.vacancy.ViewVacancyDTO;
-import com.jobber.vacancy.model.entity.vacancy.Vacancy;
+import com.jobber.vacancy.model.entity.company.Vacancy;
 import com.jobber.vacancy.side.response.DataResponse;
 import com.jobber.vacancy.side.response.Response;
 import com.jobber.vacancy.side.response.SimplePageable;
@@ -65,7 +65,7 @@ public class PanelVacancyManager implements PanelVacancyService {
                         .stream()
                         .filter(Vacancy::isActive)
                         .filter(Predicate.not(Vacancy::isDeleted))
-                        .filter(e->e.getDueDate().before(new Date()))
+                        .filter(e->e.getExpiredDate().before(new Date()))
                         .map(SimpleListVacancyDTO::new)
                         .collect(Collectors.toList());
         return responseFactoryAsList.factorySuccessDataResult(vacancyDTOList,

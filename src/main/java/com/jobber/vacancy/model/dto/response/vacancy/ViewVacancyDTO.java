@@ -1,6 +1,6 @@
 package com.jobber.vacancy.model.dto.response.vacancy;
 
-import com.jobber.vacancy.model.entity.vacancy.Vacancy;
+import com.jobber.vacancy.model.entity.company.Vacancy;
 import lombok.Getter;
 
 import java.util.Date;
@@ -24,7 +24,7 @@ public class ViewVacancyDTO {
         this.id = vacancy.getId();
         this.title = vacancy.getTitle();
         this.context = vacancy.getContext();
-        this.dueDate = vacancy.getDueDate();
+        this.dueDate = vacancy.getExpiredDate();
         this.createDate = vacancy.getCreateDate();
     }
 

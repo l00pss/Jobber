@@ -4,7 +4,7 @@ import com.jobber.vacancy.business.abstracts.vacancy.GeneralVacancyService;
 import com.jobber.vacancy.dataAccess.vacancy.GeneralVacancyRepository;
 import com.jobber.vacancy.factory.abstracts.AbstractVacancyFactory;
 import com.jobber.vacancy.model.dto.response.vacancy.SimpleListVacancyDTO;
-import com.jobber.vacancy.model.entity.vacancy.Vacancy;
+import com.jobber.vacancy.model.entity.company.Vacancy;
 import com.jobber.vacancy.side.response.DataResponse;
 import com.jobber.vacancy.side.response.factory.AbstractResponseFactory;
 import lombok.RequiredArgsConstructor;

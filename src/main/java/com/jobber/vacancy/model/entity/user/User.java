@@ -1,16 +1,19 @@
 package com.jobber.vacancy.model.entity.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.jobber.vacancy.model.entity.other.Contact;
+import com.jobber.vacancy.model.entity.contact.Contact;
 import com.jobber.vacancy.model.sys.SessionKey;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
 import java.util.Date;
 import java.util.Set;
 
-@Entity
-@Table(name = "USER")
+@MappedSuperclass
+@Getter @AllArgsConstructor @NoArgsConstructor
 public class User {
     @SequenceGenerator(name = "USER_GEN_SEQ",
             sequenceName = "USER_SEQ",

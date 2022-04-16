@@ -1,14 +1,14 @@
-package com.jobber.vacancy.model.entity.vacancy;
+package com.jobber.vacancy.model.entity.company;
 
 import com.jobber.vacancy.model.dto.request.NewVacancyDTO;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.jobber.vacancy.model.entity.other.Enroll;
+import com.jobber.vacancy.model.entity.user.Employer;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.transaction.Transactional;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "VACANCY")
@@ -26,6 +26,9 @@ public class Vacancy {
     @GeneratedValue(generator = "VACANCY_GEN_SEQ")
     private Long id;
 
+    @ManyToOne
+    private Employer owner;
+
     @Column(name = "MODIFICATION_DATE",nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date modificationDate;
@@ -38,7 +41,7 @@ public class Vacancy {
 
     @Column(name = "DUE_DATE",nullable = false)
     @Temporal(TemporalType.DATE)
-    private Date dueDate;
+    private Date expiredDate;
 
     @Column(name = "CREATE_DATE",nullable = false)
     @Temporal(TemporalType.DATE)
@@ -50,11 +53,16 @@ public class Vacancy {
     @Column(name = "IS_DELETED",nullable = false)
     private boolean isDeleted = false;
 
+    @OneToMany
+    @ToString.Exclude
+    private Set<Enroll> enrolledWorkers;
+
+
     public Vacancy(NewVacancyDTO vacancyDTO){
         this.modificationDate = new Date();
         this.title = vacancyDTO.getTitle();
         this.context = vacancyDTO.getContext();
-        this.dueDate = vacancyDTO.getDueDate();
+        this.expiredDate = vacancyDTO.getDueDate();
     }
 
     @Transactional
