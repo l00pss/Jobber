@@ -1,6 +1,6 @@
 package com.jobber.vacancy.business.concretes.vacancy;
 
-import com.jobber.vacancy.business.abstracts.vacancy.GeneralVacancyService;
+import com.jobber.vacancy.business.abstracts.general.GeneralVacancyService;
 import com.jobber.vacancy.dataAccess.vacancy.GeneralVacancyRepository;
 import com.jobber.vacancy.factory.abstracts.AbstractVacancyFactory;
 import com.jobber.vacancy.model.dto.response.vacancy.SimpleListVacancyDTO;

@@ -1,6 +1,6 @@
 package com.jobber.vacancy.business.concretes.vacancy;
 
-import com.jobber.vacancy.business.abstracts.vacancy.PanelVacancyService;
+import com.jobber.vacancy.business.abstracts.panel.PanelVacancyService;
 import com.jobber.vacancy.dataAccess.vacancy.PanelVacancyRepository;
 import com.jobber.vacancy.factory.abstracts.AbstractVacancyFactory;
 import com.jobber.vacancy.model.dto.request.NewVacancyDTO;

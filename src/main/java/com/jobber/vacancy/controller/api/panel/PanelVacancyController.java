@@ -1,6 +1,6 @@
-package com.jobber.vacancy.controller.api.vacancy;
+package com.jobber.vacancy.controller.api.panel;
 
-import com.jobber.vacancy.business.abstracts.vacancy.PanelVacancyService;
+import com.jobber.vacancy.business.abstracts.panel.PanelVacancyService;
 import com.jobber.vacancy.model.dto.request.NewVacancyDTO;
 import com.jobber.vacancy.model.dto.response.vacancy.SimpleListVacancyDTO;
 import com.jobber.vacancy.model.dto.response.vacancy.ViewVacancyDTO;

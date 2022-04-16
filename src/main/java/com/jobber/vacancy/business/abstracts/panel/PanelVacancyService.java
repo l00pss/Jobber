@@ -1,4 +1,4 @@
-package com.jobber.vacancy.business.abstracts.vacancy;
+package com.jobber.vacancy.business.abstracts.panel;
 
 import com.jobber.vacancy.model.dto.request.NewVacancyDTO;
 import com.jobber.vacancy.model.dto.response.vacancy.SimpleListVacancyDTO;
