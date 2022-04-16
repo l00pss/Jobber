@@ -26,7 +26,7 @@ public class Vacancy {
     @GeneratedValue(generator = "VACANCY_GEN_SEQ")
     private Long id;
 
-    @Column(name = "CREATE_DATE",nullable = false)
+    @Column(name = "MODIFICATION_DATE",nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date modificationDate;
 

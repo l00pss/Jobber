@@ -13,7 +13,4 @@ public interface GeneralVacancyService {
 
     DataResponse<Vacancy> findById(Long vacancyId);
 
-    DataResponse<List<SimpleListVacancyDTO>> getAllVacancies();
-
-    DataResponse<List<SimpleListVacancyDTO>> getAllVacancies(SimplePageable pageable);
 }

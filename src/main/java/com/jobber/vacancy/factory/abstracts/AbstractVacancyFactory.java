@@ -5,6 +5,8 @@ import com.jobber.vacancy.model.entity.Vacancy;
 
 public abstract class AbstractVacancyFactory {
     public abstract Vacancy factory();
+
     public abstract Vacancy factoryFromSimpleDto(NewVacancyDTO vacancyDTO);
+
 
 }
