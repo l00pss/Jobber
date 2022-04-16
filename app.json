@@ -1,5 +1,5 @@
 {
-  "name": "jobber-",
+  "name": "jobber-v",
   "buildpacks": {
     "url": "heroku/gradle"
   }
