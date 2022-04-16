@@ -1,7 +1,7 @@
-package com.jobber.ws.factory.concretes;
+package com.jobber.ws.model.factory.concretes;
 
 import com.jobber.ws.model.entity.company.Vacancy;
-import com.jobber.ws.factory.abstracts.AbstractVacancyFactory;
+import com.jobber.ws.model.factory.abstracts.AbstractVacancyFactory;
 import com.jobber.ws.model.dto.request.NewVacancyDTO;
 import org.springframework.stereotype.Component;
 

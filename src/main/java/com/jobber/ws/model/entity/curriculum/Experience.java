@@ -17,6 +17,10 @@ public class Experience {
     @Column(name = "ID", nullable = false)
     private Long id;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "curriculum_id")
+    private Curriculum curriculum;
+
     @OneToOne
     private Position defaultPosition;
 

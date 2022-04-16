@@ -2,7 +2,7 @@ package com.jobber.ws.business.concretes.vacancy;
 
 import com.jobber.ws.business.abstracts.panel.PanelVacancyService;
 import com.jobber.ws.dataAccess.vacancy.PanelVacancyRepository;
-import com.jobber.ws.factory.abstracts.AbstractVacancyFactory;
+import com.jobber.ws.model.factory.abstracts.AbstractVacancyFactory;
 import com.jobber.ws.model.dto.request.NewVacancyDTO;
 import com.jobber.ws.model.dto.response.vacancy.SimpleListVacancyDTO;
 import com.jobber.ws.model.dto.response.vacancy.ViewVacancyDTO;

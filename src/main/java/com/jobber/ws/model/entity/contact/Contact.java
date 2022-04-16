@@ -10,24 +10,24 @@ public class Contact {
     @Column(name = "ID", nullable = false)
     private Long id;
 
-    @JoinColumn(name = "contact_id")
     @OneToMany(
             cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER
+            fetch = FetchType.EAGER,
+            mappedBy = "contact"
     )
     Set<PhoneNumber> phoneNumbers;
 
-    @JoinColumn(name = "contact_id")
     @OneToMany(
             cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER
+            fetch = FetchType.EAGER,
+            mappedBy = "contact"
     )
     Set<Email> emails;
 
-    @JoinColumn(name = "contact_id")
     @OneToMany(
             cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER
+            fetch = FetchType.EAGER,
+            mappedBy = "contact"
     )
     Set<Address> addresses;
 }

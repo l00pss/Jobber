@@ -1,7 +1,10 @@
 package com.jobber.ws.model.entity.company;
 
+import com.jobber.ws.model.entity.user.Worker;
+
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "COMPANY")
@@ -26,4 +29,7 @@ public final class Company {
 
     @Column(name = "IS_ACTIVE")
     private Boolean isActive;
+
+    @ManyToMany
+    private Set<Worker> referenced;
 }

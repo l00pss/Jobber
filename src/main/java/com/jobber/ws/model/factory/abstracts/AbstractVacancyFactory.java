@@ -1,4 +1,4 @@
-package com.jobber.ws.factory.abstracts;
+package com.jobber.ws.model.factory.abstracts;
 
 import com.jobber.ws.model.entity.company.Vacancy;
 import com.jobber.ws.model.dto.request.NewVacancyDTO;

@@ -4,14 +4,15 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "CERTIFICATE")
+@Table(name = "CERTIFICATES")
 public class Certificate {
     @Id
     @Column(name = "ID", nullable = false)
     private Long id;
 
-    @ManyToOne
-    private Curriculum owner;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "curriculum_id")
+    private Curriculum curriculum;
 
     @Column(name = "NAME_OF_INSTITUTION")
     private String nameOfInstitution;

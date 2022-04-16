@@ -1,6 +1,6 @@
 package com.jobber.ws.business.concretes.vacancy;
 
-import com.jobber.ws.factory.abstracts.AbstractVacancyFactory;
+import com.jobber.ws.model.factory.abstracts.AbstractVacancyFactory;
 import com.jobber.ws.model.dto.response.vacancy.SimpleListVacancyDTO;
 import com.jobber.ws.model.entity.company.Vacancy;
 import com.jobber.ws.business.abstracts.general.GeneralVacancyService;

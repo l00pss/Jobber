@@ -4,11 +4,15 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table
+@Table(name = "EDUCATIONS")
 public class Education {
     @Id
     @Column(name = "ID", nullable = false)
     private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "curriculum_id")
+    private Curriculum curriculum;
 
     //Ixtisasin adidir.
     @Column(name = "SUBJECT_OF_EDUCATION")
@@ -18,7 +22,7 @@ public class Education {
     @Column(name = "NAME_OF_INSTITUTION")
     private String nameOfInstitution;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "education")
     private Degree degree;
 
     @Temporal(TemporalType.DATE)

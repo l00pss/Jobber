@@ -1,5 +1,7 @@
 package com.jobber.ws.model.entity.user;
 
+import com.jobber.ws.model.entity.company.Company;
+import com.jobber.ws.model.entity.company.Vacancy;
 import com.jobber.ws.model.entity.curriculum.Curriculum;
 import com.jobber.ws.model.entity.other.Enroll;
 import lombok.AllArgsConstructor;
@@ -9,10 +11,7 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Set;
@@ -29,6 +28,9 @@ public final class Worker extends User  implements UserDetails , Comparable<Work
 
     @OneToMany
     private Set<Enroll> enrolls;
+
+    @ManyToMany
+    private Set<Company> references;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

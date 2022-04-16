@@ -7,16 +7,10 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
-@Table(name = "CURRICULUM_VITAE")
+@Table(name = "CURRICULUM_VITAES")
 public class Curriculum {
     @Id
     private Long id;
-
-    @ManyToMany
-    private Set<Vacancy> enrolledVacancy;
-
-    @OneToMany
-    private Set<Company> references;
 
     @Column(name = "ABOUT") @Lob
     private String about;
@@ -27,13 +21,13 @@ public class Curriculum {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "curriculum")
     private List<Experience> experienceList;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "curriculum")
     private List<Education> educations;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "curriculum")
     private List<Certificate> certificates;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "curriculum")
     private Set<Hobby> hobbies;
 
 }
