@@ -1,6 +1,6 @@
-package com.jobber.vacancy.controller.api;
+package com.jobber.vacancy.controller.api.vacancy;
 
-import com.jobber.vacancy.business.abstracts.JobberVacancyService;
+import com.jobber.vacancy.business.abstracts.vacancy.JobberVacancyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

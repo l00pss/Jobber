@@ -2,13 +2,13 @@ package com.jobber.vacancy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Profile;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = SecurityAutoConfiguration.class)
 @EnableJpaRepositories("com.jobber.vacancy.dataAccess")
-@PropertySource("classpath:application-${spring.profiles.active:prod}.properties")
+@PropertySource("classpath:application-${spring.profiles.active:default}.properties")
 public class JobberApplication {
 
     public static void main(String[] args) {

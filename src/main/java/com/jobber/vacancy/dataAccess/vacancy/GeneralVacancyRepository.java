@@ -1,4 +1,4 @@
-package com.jobber.vacancy.dataAccess;
+package com.jobber.vacancy.dataAccess.vacancy;
 
 import com.jobber.vacancy.model.entity.Vacancy;
 import org.springframework.data.jpa.repository.JpaRepository;

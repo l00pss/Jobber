@@ -1,4 +1,4 @@
-package com.jobber.vacancy.business.abstracts;
+package com.jobber.vacancy.business.abstracts.vacancy;
 
 import com.jobber.vacancy.side.response.Response;
 

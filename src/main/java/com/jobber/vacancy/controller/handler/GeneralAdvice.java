@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 @RequiredArgsConstructor
-public class VacancyAdvice {
+public class GeneralAdvice {
 
     private final AbstractResponseFactory<ErrorResponse> responseFactory;
 

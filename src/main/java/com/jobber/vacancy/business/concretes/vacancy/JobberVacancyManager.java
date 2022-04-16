@@ -1,7 +1,7 @@
-package com.jobber.vacancy.business.concretes;
+package com.jobber.vacancy.business.concretes.vacancy;
 
-import com.jobber.vacancy.business.abstracts.JobberVacancyService;
-import com.jobber.vacancy.dataAccess.JobberVacancyRepository;
+import com.jobber.vacancy.business.abstracts.vacancy.JobberVacancyService;
+import com.jobber.vacancy.dataAccess.vacancy.JobberVacancyRepository;
 import com.jobber.vacancy.model.entity.Vacancy;
 import com.jobber.vacancy.side.response.Response;
 import com.jobber.vacancy.side.response.factory.AbstractResponseFactory;
