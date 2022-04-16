@@ -1,15 +1,12 @@
-package com.jobber.vacancy.model.dto.response;
+package com.jobber.vacancy.model.dto.response.vacancy;
 
-import com.jobber.vacancy.model.entity.Vacancy;
+import com.jobber.vacancy.model.entity.vacancy.Vacancy;
 import lombok.Getter;
 
 import java.util.Date;
 
 @Getter
-public class ViewVacancyDTO {
-
-    private static transient Vacancy vacancy;
-
+public final class SimpleListVacancyDTO {
     private final Long id;
 
     private final String title;
@@ -20,16 +17,12 @@ public class ViewVacancyDTO {
 
     private final Date createDate;
 
-    private ViewVacancyDTO(Vacancy vacancy){
+    public SimpleListVacancyDTO(Vacancy vacancy){
         this.id = vacancy.getId();
         this.title = vacancy.getTitle();
         this.context = vacancy.getContext();
         this.dueDate = vacancy.getDueDate();
         this.createDate = vacancy.getCreateDate();
-    }
-
-    public static ViewVacancyDTO factory(Vacancy vacancy){
-        return new ViewVacancyDTO(vacancy);
     }
 
 }

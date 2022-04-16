@@ -2,7 +2,7 @@ package com.jobber.vacancy.factory.concretes;
 
 import com.jobber.vacancy.factory.abstracts.AbstractVacancyFactory;
 import com.jobber.vacancy.model.dto.request.NewVacancyDTO;
-import com.jobber.vacancy.model.entity.Vacancy;
+import com.jobber.vacancy.model.entity.vacancy.Vacancy;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -1,4 +1,4 @@
-package com.jobber.vacancy.model.entity;
+package com.jobber.vacancy.model.entity.vacancy;
 
 import com.jobber.vacancy.model.dto.request.NewVacancyDTO;
 import lombok.AllArgsConstructor;

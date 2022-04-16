@@ -1,7 +1,7 @@
 package com.jobber.vacancy.factory.abstracts;
 
 import com.jobber.vacancy.model.dto.request.NewVacancyDTO;
-import com.jobber.vacancy.model.entity.Vacancy;
+import com.jobber.vacancy.model.entity.vacancy.Vacancy;
 
 public abstract class AbstractVacancyFactory {
     public abstract Vacancy factory();
