@@ -1,0 +1,6 @@
+{
+  "name": "Jobber",
+  "buildpacks": {
+    "url": "heroku/gradle"
+  }
+}
