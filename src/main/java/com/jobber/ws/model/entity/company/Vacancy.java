@@ -3,6 +3,7 @@ package com.jobber.ws.model.entity.company;
 import com.jobber.ws.model.dto.request.NewVacancyDTO;
 import com.jobber.ws.model.entity.other.Enroll;
 import com.jobber.ws.model.entity.other.Mark;
+import com.jobber.ws.model.statics.Localization;
 import lombok.*;
 
 import javax.persistence.*;
@@ -61,6 +62,11 @@ public class Vacancy {
 
     @Column(name = "IS_DELETED",nullable = false)
     private boolean isDeleted = false;
+
+    @Column(name = "IS_REMOTE",nullable = false)
+    private boolean isRemote = false;
+
+    private Long localizationId = 0L;
 
     @OneToMany(mappedBy = "vacancy")
     @ToString.Exclude
