@@ -4,6 +4,7 @@ import com.jobber.ws.model.entity.company.Company;
 import com.jobber.ws.model.entity.company.Vacancy;
 import com.jobber.ws.model.entity.curriculum.Curriculum;
 import com.jobber.ws.model.entity.other.Enroll;
+import com.jobber.ws.model.entity.other.Mark;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,6 +29,9 @@ public final class Worker extends User  implements UserDetails , Comparable<Work
 
     @OneToMany(mappedBy = "enrolledWorker")
     private Set<Enroll> enrolls;
+
+    @OneToMany(mappedBy = "worker")
+    private Set<Mark> marks;
 
     @ManyToMany
     private Set<Company> references;

@@ -2,6 +2,7 @@ package com.jobber.ws.model.entity.company;
 
 import com.jobber.ws.model.dto.request.NewVacancyDTO;
 import com.jobber.ws.model.entity.other.Enroll;
+import com.jobber.ws.model.entity.other.Mark;
 import com.jobber.ws.model.entity.user.Employer;
 import lombok.*;
 
@@ -62,6 +63,8 @@ public class Vacancy {
     @ToString.Exclude
     private Set<Enroll> enrolledWorkers;
 
+    @OneToMany(mappedBy = "vacancy")
+    private Set<Mark> marks;
 
     public Vacancy(NewVacancyDTO vacancyDTO){
         this.modificationDate = new Date();

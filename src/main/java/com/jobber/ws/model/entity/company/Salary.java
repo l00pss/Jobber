@@ -1,6 +1,7 @@
 package com.jobber.ws.model.entity.company;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "SALARY")
@@ -21,16 +22,19 @@ public class Salary {
     @Column(name = "SALARY_PERIOD")
     private Integer period = 1;
 
-    @Column(name = "SALARY")
-    private Double salary = 0.00;
+    @Column(name = "SALARY_START")
+    private BigDecimal salaryStart = new BigDecimal("0.00");
+
+    @Column(name = "SALARY_UNTIL")
+    private BigDecimal salaryUntil = new BigDecimal("0.00");
     /**
      * AZN, USD, EUR
      */
     @Column(name = "EXCHANGE")
-    private String exchange = "AZN";
+    private String exchange = " AZN";
 
     @Override
     public String toString() {
-        return salary + exchange;
+        return salaryStart +" - " + salaryUntil + exchange;
     }
 }
