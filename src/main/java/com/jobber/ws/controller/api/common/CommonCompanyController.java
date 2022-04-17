@@ -55,5 +55,11 @@ public class CommonCompanyController {
         return new ResponseEntity<>( HttpStatus.OK);
     }
 
+    @GetMapping("/popularCompanies")
+    public ResponseEntity<DataResponse<List<SimpleVacancyDTO>>> findPopularCompanies(){
+        return new ResponseEntity<>( HttpStatus.OK);
+    }
+
+
 
 }
