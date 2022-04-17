@@ -4,7 +4,7 @@ import com.jobber.ws.business.abstracts.panel.PanelVacancyService;
 import com.jobber.ws.dataAccess.vacancy.PanelVacancyRepository;
 import com.jobber.ws.model.factory.abstracts.AbstractVacancyFactory;
 import com.jobber.ws.model.dto.request.NewVacancyDTO;
-import com.jobber.ws.model.dto.response.vacancy.SimpleListVacancyDTO;
+import com.jobber.ws.model.dto.response.vacancy.SimpleVacancyDTO;
 import com.jobber.ws.model.dto.response.vacancy.ViewVacancyDTO;
 import com.jobber.ws.model.entity.company.Vacancy;
 import com.jobber.ws.side.response.DataResponse;
@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class PanelVacancyManager implements PanelVacancyService {
     private final AbstractResponseFactory<ViewVacancyDTO> responseFactory;
-    private final AbstractResponseFactory<List<SimpleListVacancyDTO>> responseFactoryAsList;
+    private final AbstractResponseFactory<List<SimpleVacancyDTO>> responseFactoryAsList;
     private final PanelVacancyRepository panelVacancyRepository;
     private final AbstractVacancyFactory vacancyFactory;
 
@@ -44,12 +44,12 @@ public class PanelVacancyManager implements PanelVacancyService {
 
 
     @Override
-    public DataResponse<List<SimpleListVacancyDTO>> findAll() {
-        List<SimpleListVacancyDTO> vacancyDTOList =
+    public DataResponse<List<SimpleVacancyDTO>> findAll() {
+        List<SimpleVacancyDTO> vacancyDTOList =
                 panelVacancyRepository
                         .getAllByDeletedFalseAndActiveTrue()
                         .stream()
-                        .map(SimpleListVacancyDTO::new)
+                        .map(SimpleVacancyDTO::new)
                         .collect(Collectors.toList());
 
         return responseFactoryAsList.factorySuccessDataResult(vacancyDTOList,
@@ -57,8 +57,8 @@ public class PanelVacancyManager implements PanelVacancyService {
     }
 
     @Override
-    public DataResponse<List<SimpleListVacancyDTO>> findAll(SimplePageable pageable) {
-        List<SimpleListVacancyDTO> vacancyDTOList =
+    public DataResponse<List<SimpleVacancyDTO>> findAll(SimplePageable pageable) {
+        List<SimpleVacancyDTO> vacancyDTOList =
                 panelVacancyRepository
                         .findAll(pageable.factory())
                         .getContent()
@@ -66,7 +66,7 @@ public class PanelVacancyManager implements PanelVacancyService {
                         .filter(Vacancy::isActive)
                         .filter(Predicate.not(Vacancy::isDeleted))
                         .filter(e->e.getExpiredDate().before(new Date()))
-                        .map(SimpleListVacancyDTO::new)
+                        .map(SimpleVacancyDTO::new)
                         .collect(Collectors.toList());
         return responseFactoryAsList.factorySuccessDataResult(vacancyDTOList,
                 "Sorğu üzrə bütün nəticələr");

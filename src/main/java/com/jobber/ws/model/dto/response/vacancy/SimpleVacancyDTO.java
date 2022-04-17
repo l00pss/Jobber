@@ -6,7 +6,7 @@ import lombok.Getter;
 import java.util.Date;
 
 @Getter
-public final class SimpleListVacancyDTO {
+public final class SimpleVacancyDTO {
     private final Long id;
 
     private final String title;
@@ -17,7 +17,7 @@ public final class SimpleListVacancyDTO {
 
     private final Date createDate;
 
-    public SimpleListVacancyDTO(Vacancy vacancy){
+    public SimpleVacancyDTO(Vacancy vacancy){
         this.id = vacancy.getId();
         this.title = vacancy.getTitle();
         this.context = vacancy.getContext();

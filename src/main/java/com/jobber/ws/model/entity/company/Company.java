@@ -1,5 +1,6 @@
 package com.jobber.ws.model.entity.company;
 
+import com.jobber.ws.model.entity.contact.Contact;
 import com.jobber.ws.model.entity.user.Worker;
 
 import javax.persistence.*;
@@ -24,8 +25,11 @@ public final class Company {
     @Column(name = "COVER_IMAGE")
     private String coverImage;
 
-    @OneToMany
+    @OneToMany(mappedBy = "company")
     List<Vacancy> vacancies;
+
+    @OneToOne
+    private Contact contact;
 
     @Column(name = "IS_ACTIVE")
     private Boolean isActive;

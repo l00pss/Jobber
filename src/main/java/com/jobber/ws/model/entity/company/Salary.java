@@ -1,9 +1,6 @@
 package com.jobber.ws.model.entity.company;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "SALARY")
@@ -11,6 +8,10 @@ public class Salary {
     @Id
     @Column(name = "ID", nullable = false)
     private Long id;
+
+    @OneToOne
+    @JoinColumn(name = "vacancy_id")
+    private Vacancy vacancy;
     /**
      * 1 - Ayliq
      * 2 - Illik

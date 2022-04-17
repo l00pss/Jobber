@@ -26,7 +26,7 @@ public final class Worker extends User  implements UserDetails , Comparable<Work
     @OneToOne
     private Curriculum curriculum;
 
-    @OneToMany
+    @OneToMany(mappedBy = "enrolledWorker")
     private Set<Enroll> enrolls;
 
     @ManyToMany

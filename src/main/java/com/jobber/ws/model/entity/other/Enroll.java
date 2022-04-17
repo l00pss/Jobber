@@ -17,11 +17,13 @@ public class Enroll {
     @Temporal(TemporalType.TIMESTAMP)
     private Date modificationDate;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "worker_id")
     private Worker enrolledWorker;
 
     @ManyToOne
-    private Vacancy ownVacancy;
+    @JoinColumn(name = "vacancy_id")
+    private Vacancy vacancy;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date enrollDate = new Date();
@@ -35,11 +37,11 @@ public class Enroll {
         if (this == o) return true;
         if (!(o instanceof Enroll)) return false;
         Enroll enroll = (Enroll) o;
-        return id.equals(enroll.id) && enrolledWorker.equals(enroll.enrolledWorker) && ownVacancy.equals(enroll.ownVacancy);
+        return id.equals(enroll.id) && enrolledWorker.equals(enroll.enrolledWorker) && vacancy.equals(enroll.vacancy);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, enrolledWorker, ownVacancy);
+        return Objects.hash(id, enrolledWorker, vacancy);
     }
 }

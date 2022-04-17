@@ -26,8 +26,10 @@ public class Vacancy {
     @GeneratedValue(generator = "VACANCY_GEN_SEQ")
     private Long id;
 
+
     @ManyToOne
-    private Employer owner;
+    @JoinColumn(name = "company_id")
+    private Company company;
 
     @Column(name = "MODIFICATION_DATE",nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
@@ -38,6 +40,9 @@ public class Vacancy {
 
     @Column(name = "CONTEXT",nullable = false)
     private String context;
+
+    @OneToOne(mappedBy = "vacancy")
+    private Salary salary;
 
     @Column(name = "DUE_DATE",nullable = false)
     @Temporal(TemporalType.DATE)
@@ -53,7 +58,7 @@ public class Vacancy {
     @Column(name = "IS_DELETED",nullable = false)
     private boolean isDeleted = false;
 
-    @OneToMany
+    @OneToMany(mappedBy = "vacancy")
     @ToString.Exclude
     private Set<Enroll> enrolledWorkers;
 
@@ -67,7 +72,7 @@ public class Vacancy {
 
     @Transactional
     public void delete() {
-        isDeleted = true;
-        isActive = false;
+        this.isDeleted = true;
+        this.isActive = false;
     }
 }

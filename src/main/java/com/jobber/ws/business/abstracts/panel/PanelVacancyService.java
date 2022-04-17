@@ -1,7 +1,7 @@
 package com.jobber.ws.business.abstracts.panel;
 
 import com.jobber.ws.model.dto.request.NewVacancyDTO;
-import com.jobber.ws.model.dto.response.vacancy.SimpleListVacancyDTO;
+import com.jobber.ws.model.dto.response.vacancy.SimpleVacancyDTO;
 import com.jobber.ws.model.dto.response.vacancy.ViewVacancyDTO;
 import com.jobber.ws.side.response.DataResponse;
 import com.jobber.ws.side.response.Response;
@@ -15,9 +15,9 @@ public interface PanelVacancyService {
 
     Response delete(Long vacancyId);
 
-    DataResponse<List<SimpleListVacancyDTO>> findAll();
+    DataResponse<List<SimpleVacancyDTO>> findAll();
 
-    DataResponse<List<SimpleListVacancyDTO>> findAll(SimplePageable pageable);
+    DataResponse<List<SimpleVacancyDTO>> findAll(SimplePageable pageable);
 
     DataResponse<ViewVacancyDTO> open(Long id);
 
