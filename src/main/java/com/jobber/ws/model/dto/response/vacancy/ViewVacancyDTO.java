@@ -23,7 +23,7 @@ public class ViewVacancyDTO {
     private ViewVacancyDTO(Vacancy vacancy){
         this.id = vacancy.getId();
         this.title = vacancy.getTitle();
-        this.context = vacancy.getContext();
+        this.context = vacancy.getOpportunity();
         this.dueDate = vacancy.getExpiredDate();
         this.createDate = vacancy.getCreateDate();
     }

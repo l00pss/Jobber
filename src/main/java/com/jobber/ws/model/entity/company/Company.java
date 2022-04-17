@@ -2,6 +2,10 @@ package com.jobber.ws.model.entity.company;
 
 import com.jobber.ws.model.entity.contact.Contact;
 import com.jobber.ws.model.entity.user.Worker;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
@@ -9,6 +13,10 @@ import java.util.Set;
 
 @Entity
 @Table(name = "COMPANY")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public final class Company {
     @Id
     private Long id;

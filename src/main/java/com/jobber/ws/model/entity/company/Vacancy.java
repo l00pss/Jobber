@@ -3,7 +3,6 @@ package com.jobber.ws.model.entity.company;
 import com.jobber.ws.model.dto.request.NewVacancyDTO;
 import com.jobber.ws.model.entity.other.Enroll;
 import com.jobber.ws.model.entity.other.Mark;
-import com.jobber.ws.model.entity.user.Employer;
 import lombok.*;
 
 import javax.persistence.*;
@@ -40,7 +39,7 @@ public class Vacancy {
     private String title;
 
     @Column(name = "CONTEXT",nullable = false)
-    private String context;
+    private String opportunity;
 
     @OneToOne(mappedBy = "vacancy")
     private Salary salary;
@@ -69,7 +68,7 @@ public class Vacancy {
     public Vacancy(NewVacancyDTO vacancyDTO){
         this.modificationDate = new Date();
         this.title = vacancyDTO.getTitle();
-        this.context = vacancyDTO.getContext();
+        this.opportunity = vacancyDTO.getContext();
         this.expiredDate = vacancyDTO.getDueDate();
     }
 

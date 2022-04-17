@@ -1,10 +1,19 @@
 package com.jobber.ws.model.entity.curriculum;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "EDUCATIONS")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Education {
     @Id
     @Column(name = "ID", nullable = false)

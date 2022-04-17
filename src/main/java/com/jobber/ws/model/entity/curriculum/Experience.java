@@ -1,6 +1,10 @@
 package com.jobber.ws.model.entity.curriculum;
 
 import com.jobber.ws.model.entity.curriculum.position.Position;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -10,6 +14,10 @@ import java.util.Date;
 
 @Entity
 @Table(name = "EXPERIENCES")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Experience {
     @Id
     @Column(name = "ID", nullable = false)

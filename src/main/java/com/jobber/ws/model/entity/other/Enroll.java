@@ -2,6 +2,10 @@ package com.jobber.ws.model.entity.other;
 
 import com.jobber.ws.model.entity.company.Vacancy;
 import com.jobber.ws.model.entity.user.Worker;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -10,6 +14,10 @@ import java.util.Objects;
 //Muraciet
 @Entity
 @Table(name = "ENROLL")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Enroll {
     @Id
     private Long id;

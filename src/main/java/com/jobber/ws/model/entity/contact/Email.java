@@ -1,9 +1,18 @@
 package com.jobber.ws.model.entity.contact;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "EMAILS")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Email {
     @Id
     @Column(name = "ID", nullable = false)
