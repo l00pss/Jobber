@@ -8,6 +8,7 @@ import lombok.*;
 import javax.persistence.*;
 import javax.transaction.Transactional;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -41,6 +42,9 @@ public class Vacancy {
     @Column(name = "CONTEXT",nullable = false)
     private String opportunity;
 
+    @OneToMany(mappedBy = "vacancy")
+    private List<Responsibility> responsibility;
+
     @OneToOne(mappedBy = "vacancy")
     private Salary salary;
 
@@ -64,6 +68,11 @@ public class Vacancy {
 
     @OneToMany(mappedBy = "vacancy")
     private Set<Mark> marks;
+
+    @OneToMany
+    private List<Views> views;
+
+
 
     public Vacancy(NewVacancyDTO vacancyDTO){
         this.modificationDate = new Date();
