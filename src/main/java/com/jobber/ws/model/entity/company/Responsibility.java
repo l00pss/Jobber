@@ -3,6 +3,7 @@ package com.jobber.ws.model.entity.company;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "RESPONSIBILITY")
@@ -18,6 +19,7 @@ public class Responsibility {
     @JoinColumn(name = "vacancy_id")
     private Vacancy vacancy;
 
-    @Column(name = "CONTEXT",nullable = false)
-    private String context;
+    @Column(name = "PUNKT",nullable = false)
+    @Size(min = 0,max = 350)
+    private String punkt;
 }
