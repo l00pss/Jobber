@@ -15,7 +15,8 @@ import java.util.Arrays;
 /**
  * Layihə daxilində iş məntiqindən irəli gələn bütün Exception- lar bu {@link BaseException BaseException }
  * törəməsi olmaq məcburiyyətindədir. Bu halda alınan xətalar {@link ModelException ModelException } modeli ilə
- * verilənlər bazasına yazıla bilir. Dörd əsas qurucu metodu vardır. Sinifi <strong>extend</strong> edən siniflər
+ * {@link ExceptionRepository ExceptionRepository } vasitəsi ilə verilənlər bazasına yazıla bilir.
+ * Dörd əsas qurucu metodu vardır. Sinifi <strong>extend</strong> edən siniflər
  * bu qurucu metodları <strong>override</strong> etməlidirlər.
  * <p>Nümunə : </p>
  * <blockquote>
@@ -41,6 +42,8 @@ import java.util.Arrays;
  * }
  *     </pre>
  * </blockquote>
+ * @see ModelException
+ * @see ExceptionRepository
  * @author Vugar Mammadli
  * @version 2022 Aprel 17
  */
