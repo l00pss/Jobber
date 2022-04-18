@@ -7,6 +7,15 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.Date;
 
+/**
+ * Bu sinif yalnız layihədə yer alan {@link com.jobber.ws.side.exception.BaseException BaseException}
+ * törəmələri olan Exceptionları modelləmək üçün istifadə edilə bilər. Burada hazırlanan model
+ * {@link com.jobber.ws.dataAccess.sys.ExceptionRepository ExceptionRepository} vasitəsi ilə
+ * verilənlər bazasına yazılır.
+ * @see com.jobber.ws.dataAccess.sys.ExceptionRepository
+ * @see com.jobber.ws.side.exception.BaseException
+ * @author Vugar Mammadli
+ */
 @Entity
 @Table(name = "EXCEPTIONS")
 @Getter @NoArgsConstructor @AllArgsConstructor
@@ -46,10 +55,31 @@ public class ModelException {
         this.reporter = reporter;
     }
 
+
+    /**
+     * Exception modeli hazırlamaq üçün iki fərqli qurucu metod var. Bu metod reporteridə tutur.
+     * @param exceptionName - Exception sinifinin adı
+     * @param stackTrace - Exceptionun verdiyi yerlərin başdan sona bütün yerləri
+     * @param localizedMessage - Localized ismarıcı
+     * @param reporter - Əgər xüsusi bir istifadəçidə olubdursa onun haqqında məlumat
+     * @return Xüsusi Exception modeli
+     * @see com.jobber.ws.side.exception.BaseException
+     * @author Vugar Mammadli
+     */
     public static ModelException factory(String exceptionName, String stackTrace,String localizedMessage,String reporter){
         return new ModelException(exceptionName,stackTrace,localizedMessage,reporter);
     }
 
+
+    /**
+     * Exception modeli hazırlamaq üçün iki fərqli qurucu metod var.
+     * @param exceptionName - Exception sinifinin adı
+     * @param stackTrace - Exceptionun verdiyi yerlərin başdan sona bütün yerləri
+     * @param localizedMessage - Localized ismarıcı
+     * @return Xüsusi Exception modeli
+     * @see com.jobber.ws.side.exception.BaseException
+     * @author Vugar Mammadli
+     */
     public static ModelException factory(String exceptionName, String stackTrace,String localizedMessage){
         return new ModelException(exceptionName,stackTrace,localizedMessage,null);
     }
