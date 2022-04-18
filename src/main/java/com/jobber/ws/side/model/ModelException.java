@@ -3,6 +3,8 @@ package com.jobber.ws.side.model;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -12,6 +14,13 @@ import java.util.Date;
  * törəmələri olan Exceptionları modelləmək üçün istifadə edilə bilər. Burada hazırlanan model
  * {@link com.jobber.ws.dataAccess.sys.ExceptionRepository ExceptionRepository} vasitəsi ilə
  * verilənlər bazasına yazılır.
+ * Nümunə üçün :
+ * <blockquote><pre>
+ * ModelException modelException = ModelException
+ *                .factory(exception.getMessage(),
+ *                         Arrays.toString(exception.getStackTrace()),
+ *                         exception.getLocalizedMessage());
+ *  </pre></blockquote>
  * @see com.jobber.ws.dataAccess.sys.ExceptionRepository
  * @see com.jobber.ws.side.exception.BaseException
  * @since 1.0.0
@@ -71,7 +80,8 @@ public class ModelException {
      * @author Vugar Mammadli
      * @version 2022 Aprel 17
      */
-    public static ModelException factory(String exceptionName, String stackTrace,String localizedMessage,String reporter){
+    @Contract("_, _, _, _ -> new")
+    public static @NotNull ModelException factory(String exceptionName, String stackTrace, String localizedMessage, String reporter){
         return new ModelException(exceptionName,stackTrace,localizedMessage,reporter);
     }
 
@@ -87,7 +97,8 @@ public class ModelException {
      * @author Vugar Mammadli
      * @version 2022 Aprel 17
      */
-    public static ModelException factory(String exceptionName, String stackTrace,String localizedMessage){
+    @Contract("_, _, _ -> new")
+    public static @NotNull ModelException factory(String exceptionName, String stackTrace, String localizedMessage){
         return new ModelException(exceptionName,stackTrace,localizedMessage,null);
     }
 
