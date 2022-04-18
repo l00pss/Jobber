@@ -1,4 +1,4 @@
-package com.jobber.ws.side.model;
+package com.jobber.ws.core.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

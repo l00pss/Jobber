@@ -1,4 +1,4 @@
-package com.jobber.ws.side.response;
+package com.jobber.ws.core.response;
 
 import lombok.Getter;
 

@@ -1,4 +1,4 @@
-package com.jobber.ws.side.exception;
+package com.jobber.ws.core.exception;
 
 public class UnknownException extends BaseException{
 

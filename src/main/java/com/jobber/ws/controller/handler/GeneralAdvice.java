@@ -1,8 +1,8 @@
 package com.jobber.ws.controller.handler;
 
-import com.jobber.ws.side.exception.UnknownException;
-import com.jobber.ws.side.response.error.ErrorResponse;
-import com.jobber.ws.side.response.factory.AbstractResponseFactory;
+import com.jobber.ws.core.exception.UnknownException;
+import com.jobber.ws.core.response.error.ErrorResponse;
+import com.jobber.ws.core.response.factory.AbstractResponseFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;

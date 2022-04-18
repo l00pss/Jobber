@@ -1,6 +1,6 @@
 package com.jobber.ws.dataAccess.sys;
 
-import com.jobber.ws.side.model.Log;
+import com.jobber.ws.core.model.Log;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

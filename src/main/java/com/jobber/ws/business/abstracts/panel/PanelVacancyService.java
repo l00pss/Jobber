@@ -3,9 +3,9 @@ package com.jobber.ws.business.abstracts.panel;
 import com.jobber.ws.model.dto.request.NewVacancyDTO;
 import com.jobber.ws.model.dto.response.vacancy.SimpleVacancyDTO;
 import com.jobber.ws.model.dto.response.vacancy.ViewVacancyDTO;
-import com.jobber.ws.side.response.DataResponse;
-import com.jobber.ws.side.response.Response;
-import com.jobber.ws.side.response.SimplePageable;
+import com.jobber.ws.core.response.DataResponse;
+import com.jobber.ws.core.response.Response;
+import com.jobber.ws.core.response.SimplePageable;
 
 import java.util.List;
 

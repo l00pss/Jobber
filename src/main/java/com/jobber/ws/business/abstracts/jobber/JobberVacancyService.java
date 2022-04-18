@@ -1,6 +1,6 @@
 package com.jobber.ws.business.abstracts.jobber;
 
-import com.jobber.ws.side.response.Response;
+import com.jobber.ws.core.response.Response;
 
 public interface JobberVacancyService {
 

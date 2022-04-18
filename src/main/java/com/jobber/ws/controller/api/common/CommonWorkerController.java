@@ -1,12 +1,11 @@
 package com.jobber.ws.controller.api.common;
 
-import com.jobber.ws.business.search.filter.VacancyFilter;
 import com.jobber.ws.business.search.filter.WorkerFilter;
 import com.jobber.ws.model.dto.response.user.SimpleWorkerDTO;
 import com.jobber.ws.model.dto.response.user.ViewWorkerDTO;
 import com.jobber.ws.model.dto.response.vacancy.SimpleVacancyDTO;
-import com.jobber.ws.side.response.DataResponse;
-import com.jobber.ws.side.response.SimplePageable;
+import com.jobber.ws.core.response.DataResponse;
+import com.jobber.ws.core.response.SimplePageable;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

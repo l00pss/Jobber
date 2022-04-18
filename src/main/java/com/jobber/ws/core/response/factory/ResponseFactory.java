@@ -1,9 +1,9 @@
-package com.jobber.ws.side.response.factory;
+package com.jobber.ws.core.response.factory;
 
-import com.jobber.ws.side.response.error.ErrorDataResponse;
-import com.jobber.ws.side.response.error.ErrorResponse;
-import com.jobber.ws.side.response.success.SuccessDataResponse;
-import com.jobber.ws.side.response.success.SuccessResponse;
+import com.jobber.ws.core.response.error.ErrorDataResponse;
+import com.jobber.ws.core.response.error.ErrorResponse;
+import com.jobber.ws.core.response.success.SuccessDataResponse;
+import com.jobber.ws.core.response.success.SuccessResponse;
 import org.springframework.stereotype.Component;
 
 /**

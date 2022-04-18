@@ -1,7 +1,7 @@
-package com.jobber.ws.side.response.success;
+package com.jobber.ws.core.response.success;
 
 
-import com.jobber.ws.side.response.DataResponse;
+import com.jobber.ws.core.response.DataResponse;
 
 /**
  * @author Vugar Mammadli

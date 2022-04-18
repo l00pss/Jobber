@@ -1,6 +1,6 @@
-package com.jobber.ws.side.response.success;
+package com.jobber.ws.core.response.success;
 
-import com.jobber.ws.side.response.Response;
+import com.jobber.ws.core.response.Response;
 
 /**
  * @author Vugar Mammadli

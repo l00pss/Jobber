@@ -1,6 +1,6 @@
-package com.jobber.ws.side.response.error;
+package com.jobber.ws.core.response.error;
 
-import com.jobber.ws.side.response.Response;
+import com.jobber.ws.core.response.Response;
 import org.springframework.boot.web.servlet.error.ErrorController;
 
 /**

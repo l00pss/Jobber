@@ -1,13 +1,13 @@
-package com.jobber.ws.side.exception;
+package com.jobber.ws.core.exception;
 
 import com.jobber.ws.controller.handler.GeneralAdvice;
 import com.jobber.ws.dataAccess.sys.ExceptionRepository;
-import com.jobber.ws.side.model.ModelException;
+import com.jobber.ws.core.model.ModelException;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.ui.Model;
 
 import java.util.Arrays;
 
@@ -17,7 +17,7 @@ import java.util.Arrays;
  * törəməsi olmaq məcburiyyətindədir. Bu halda alınan xətalar {@link ModelException ModelException } modeli ilə
  * {@link ExceptionRepository ExceptionRepository } vasitəsi ilə verilənlər bazasına yazıla bilir.
  * Dörd əsas qurucu metodu vardır. Sinifi <strong>extend</strong> edən siniflər
- * bu qurucu metodları <strong>override</strong> etməlidirlər.
+ * bu qurucu metodlardan özünə uyğun olanını <strong>override</strong> etməlidirlər.
  * <p>Nümunə : </p>
  * <blockquote>
  *     <pre>
@@ -47,6 +47,7 @@ import java.util.Arrays;
  * @author Vugar Mammadli
  * @version 2022 Aprel 17
  */
+
 @Component
 public class BaseException extends Exception {
 
@@ -81,7 +82,7 @@ public class BaseException extends Exception {
      * @author Vugar Mammadli
      * @version 2022 Aprel 17
      */
-    private void saveException(Exception exception){
+    private void saveException(@NotNull Exception exception){
         ModelException modelException = ModelException
                 .factory(exception.getMessage(),
                         Arrays.toString(exception.getStackTrace()),
@@ -96,7 +97,7 @@ public class BaseException extends Exception {
      * @author Vugar Mammadli
      * @version 2022 Aprel 17
      */
-    private void saveException(Exception exception,String reporter){
+    private void saveException(@NotNull Exception exception, String reporter){
         ModelException modelException = ModelException
                 .factory(exception.getMessage(),
                         Arrays.toString(exception.getStackTrace()),
@@ -113,7 +114,7 @@ public class BaseException extends Exception {
      * @author Vugar Mammadli
      * @version 2022 Aprel 17
      */
-    private void saveException(Exception exception,String reporter,String extension){
+    private void saveException(@NotNull Exception exception, String reporter, String extension){
         ModelException modelException = ModelException
                 .factory(exception.getMessage(),
                         Arrays.toString(exception.getStackTrace()),
