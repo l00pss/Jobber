@@ -11,8 +11,10 @@ import java.util.Date;
 
 /**
  * Bu sinif yalnız layihədə yer alan {@link com.jobber.ws.side.exception.BaseException BaseException}
- * törəmələri olan Exceptionları modelləmək üçün istifadə edilə bilər. Burada hazırlanan model
- * {@link com.jobber.ws.dataAccess.sys.ExceptionRepository ExceptionRepository} vasitəsi ilə
+ * törəmələri olan Exceptionları modelləmək üçün istifadə edilə bilər. Bu modeldən tam istifadə edə bilmək üçün
+ * {@link com.jobber.ws.side.exception.BaseException BaseException} qurucu metodlarının hamısı xüsusi {@link Exception Exception}
+ * sinifi tərəfindən implement edilməlidir.
+ * Burada hazırlanan model {@link com.jobber.ws.dataAccess.sys.ExceptionRepository ExceptionRepository} vasitəsi ilə
  * verilənlər bazasına yazılır.
  * Nümunə üçün :
  * <blockquote><pre>
