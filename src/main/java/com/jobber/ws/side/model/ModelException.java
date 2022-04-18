@@ -16,7 +16,9 @@ import java.util.Date;
  * @see com.jobber.ws.side.exception.BaseException
  * @since 1.0.0
  * @author Vugar Mammadli
+ * @version 2022 Aprel 17
  */
+
 @Entity
 @Table(name = "EXCEPTIONS")
 @Getter @NoArgsConstructor @AllArgsConstructor
@@ -67,6 +69,7 @@ public class ModelException {
      * @see com.jobber.ws.side.exception.BaseException
      * @since 1.0.0
      * @author Vugar Mammadli
+     * @version 2022 Aprel 17
      */
     public static ModelException factory(String exceptionName, String stackTrace,String localizedMessage,String reporter){
         return new ModelException(exceptionName,stackTrace,localizedMessage,reporter);
@@ -82,6 +85,7 @@ public class ModelException {
      * @see com.jobber.ws.side.exception.BaseException
      * @since 1.0.0
      * @author Vugar Mammadli
+     * @version 2022 Aprel 17
      */
     public static ModelException factory(String exceptionName, String stackTrace,String localizedMessage){
         return new ModelException(exceptionName,stackTrace,localizedMessage,null);
