@@ -71,7 +71,7 @@ public class ModelException {
 
 
     /**
-     * Exception modeli hazırlamaq üçün iki fərqli qurucu metod var. Bu metod reporteridə tutur.
+     * Exception modeli hazırlamaq üçün iki fərqli qurucu metod var. <strong>Bu metod reporteridə tutur.</strong>
      * @param exceptionName - Exception sinifinin adı
      * @param stackTrace - Exceptionun verdiyi yerlərin başdan sona bütün yerləri
      * @param localizedMessage - Localized ismarıcı
