@@ -26,10 +26,10 @@ public class User {
     @GeneratedValue(generator = "USER_GEN_SEQ")
     private Long id;
 
-    @Column(name = "NAME")
+    @Column(name = "NAME",nullable = false)
     private String name;
 
-    @Column(name = "LAST_NAME")
+    @Column(name = "LAST_NAME",nullable = false)
     private String lastName;
 
     @Column(name = "USER_NAME",unique = true)
