@@ -14,6 +14,7 @@ import java.util.Date;
  * verilənlər bazasına yazılır.
  * @see com.jobber.ws.dataAccess.sys.ExceptionRepository
  * @see com.jobber.ws.side.exception.BaseException
+ * @since 1.0.0
  * @author Vugar Mammadli
  */
 @Entity
@@ -61,9 +62,10 @@ public class ModelException {
      * @param exceptionName - Exception sinifinin adı
      * @param stackTrace - Exceptionun verdiyi yerlərin başdan sona bütün yerləri
      * @param localizedMessage - Localized ismarıcı
-     * @param reporter - Əgər xüsusi bir istifadəçidə olubdursa onun haqqında məlumat
+     * @param reporter - Əgər xəta xüsusi bir istifadəçidə və ya yerdə olubdursa onun haqqında məlumatı tutur
      * @return Xüsusi Exception modeli
      * @see com.jobber.ws.side.exception.BaseException
+     * @since 1.0.0
      * @author Vugar Mammadli
      */
     public static ModelException factory(String exceptionName, String stackTrace,String localizedMessage,String reporter){
@@ -78,6 +80,7 @@ public class ModelException {
      * @param localizedMessage - Localized ismarıcı
      * @return Xüsusi Exception modeli
      * @see com.jobber.ws.side.exception.BaseException
+     * @since 1.0.0
      * @author Vugar Mammadli
      */
     public static ModelException factory(String exceptionName, String stackTrace,String localizedMessage){
