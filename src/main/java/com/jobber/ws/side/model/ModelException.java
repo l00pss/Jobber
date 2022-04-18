@@ -76,7 +76,7 @@ public class ModelException {
      * @param stackTrace - Exceptionun verdiyi yerlərin başdan sona bütün yerləri
      * @param localizedMessage - Localized ismarıcı
      * @param reporter - Əgər xəta xüsusi bir istifadəçidə və ya yerdə olubdursa onun haqqında məlumatı tutur
-     * @return Xüsusi Exception modeli
+     * @return Xüsusi Exception modeli. Heç vaxt <strong>Null</strong> dəyər döndürməz.
      * @see com.jobber.ws.side.exception.BaseException
      * @since 1.0.0
      * @author Vugar Mammadli
@@ -93,7 +93,7 @@ public class ModelException {
      * @param exceptionName - Exception sinifinin adı
      * @param stackTrace - Exceptionun verdiyi yerlərin başdan sona bütün yerləri
      * @param localizedMessage - Localized ismarıcı
-     * @return Xüsusi Exception modeli
+     * @return Xüsusi Exception modeli. Heç vaxt <strong>Null</strong> dəyər döndürməz.
      * @see com.jobber.ws.side.exception.BaseException
      * @since 1.0.0
      * @author Vugar Mammadli
