@@ -53,7 +53,7 @@ public class ModelException {
     @Column(name = "REPORTER")
     private String reporter;
 
-    @Column(name = "STACK_TRACE",length = 500)
+    @Column(name = "STACK_TRACE",length = 2500)
     private String stackTrace;
 
     @Column(name = "LOCALIZED_MESSAGE")
