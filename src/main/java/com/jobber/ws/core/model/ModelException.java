@@ -1,10 +1,12 @@
 package com.jobber.ws.core.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
+import org.springframework.context.annotation.Scope;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -13,7 +15,7 @@ import java.util.Date;
  * Bu sinif yalnız layihədə yer alan {@link com.jobber.ws.core.exception.BaseException BaseException}
  * törəmələri olan Exceptionları modelləmək üçün istifadə edilə bilər. Bu modeldən tam istifadə edə bilmək üçün
  * {@link com.jobber.ws.core.exception.BaseException BaseException} qurucu metodlarının hamısı xüsusi {@link Exception Exception}
- * sinifi tərəfindən implement edilməlidir.
+ * sinifi tərəfindən implement edilməlidir. Bu sinif <strong>Spring</strong> tərəfində <strong>Prototype</strong> olaraq yüklənir.
  * Burada hazırlanan model {@link com.jobber.ws.dataAccess.sys.ExceptionRepository ExceptionRepository} vasitəsi ilə
  * verilənlər bazasına yazılır.
  * Nümunə üçün :
@@ -31,8 +33,9 @@ import java.util.Date;
  */
 
 @Entity
+@Scope("prototype")
 @Table(name = "EXCEPTIONS")
-@Getter @NoArgsConstructor @AllArgsConstructor
+@Data @NoArgsConstructor @AllArgsConstructor
 public class ModelException {
     @SequenceGenerator(name = "EX_GEN_SEQ",
             sequenceName = "EX_SEQ",
@@ -41,8 +44,8 @@ public class ModelException {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(generator = "EX_GEN_SEQ")
-    private Long id;
+    @GeneratedValue(generator ="EX_GEN_SEQ" )
+    private Long id = 1L;
 
     @Column(name = "NAME")
     private String exceptionName;
@@ -50,7 +53,8 @@ public class ModelException {
     @Column(name = "REPORTER")
     private String reporter;
 
-    @Column(name = "STACK_TRACE") @Lob
+    @Column(name = "STACK_TRACE")
+    @Lob
     private String stackTrace;
 
     @Column(name = "LOCALIZED_MESSAGE")
@@ -60,7 +64,7 @@ public class ModelException {
     private String extension;
 
     @Temporal(TemporalType.TIMESTAMP)
-    private Date timeStamp = new Date();
+    private Date timeStamp ;
 
     private ModelException(String exceptionName, String stackTrace,String localizedMessage,String reporter,String extension){
         this.exceptionName = exceptionName;
@@ -68,6 +72,7 @@ public class ModelException {
         this.localizedMessage = localizedMessage;
         this.reporter = reporter;
         this.extension = extension;
+        this.timeStamp = new Date();
     }
 
 
@@ -133,4 +138,16 @@ public class ModelException {
     }
 
 
+    @Override
+    public String toString() {
+        return "ModelException{" +
+                "id=" + id +
+                ", exceptionName='" + exceptionName + '\'' +
+                ", reporter='" + reporter + '\'' +
+                ", stackTrace='" + stackTrace + '\'' +
+                ", localizedMessage='" + localizedMessage + '\'' +
+                ", extension='" + extension + '\'' +
+                ", timeStamp=" + timeStamp +
+                '}';
+    }
 }

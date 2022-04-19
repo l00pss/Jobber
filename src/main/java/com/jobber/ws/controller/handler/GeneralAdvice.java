@@ -1,5 +1,6 @@
 package com.jobber.ws.controller.handler;
 
+import com.jobber.ws.core.exception.ExceptionProvider;
 import com.jobber.ws.core.exception.UnknownException;
 import com.jobber.ws.core.response.error.ErrorResponse;
 import com.jobber.ws.core.response.factory.AbstractResponseFactory;
@@ -14,10 +15,12 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GeneralAdvice {
 
     private final AbstractResponseFactory<ErrorResponse> responseFactory;
+    private final ExceptionProvider exceptionProvider;
 
-    @ExceptionHandler(UnknownException.class)
+    @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.BAD_GATEWAY)
-    public ErrorResponse handlerNullValueException(UnknownException exception){
+    public ErrorResponse handlerNullValueException(Exception exception){
+        this.exceptionProvider.saveException(exception);
         return responseFactory.factoryErrorResult(exception.getMessage());
     }
 }
