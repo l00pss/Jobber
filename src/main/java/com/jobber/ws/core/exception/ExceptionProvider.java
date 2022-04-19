@@ -1,10 +1,9 @@
 package com.jobber.ws.core.exception;
 
 import com.jobber.ws.core.model.ModelException;
-import com.jobber.ws.dataAccess.sys.ExampleExReposirory;
+import com.jobber.ws.dataAccess.sys.ExceptionRepository;
 import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.NotNull;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -12,7 +11,7 @@ import java.util.Arrays;
 @Component
 @RequiredArgsConstructor
 public class ExceptionProvider {
-    private  final ExampleExReposirory repository;
+    private  final ExceptionRepository repository;
 
     /**
      * Exception-nun verilənlər bazasına yazmaq üçün bu metodu istifadə edər.
@@ -23,7 +22,7 @@ public class ExceptionProvider {
     public void saveException(@NotNull Exception exception){
         ModelException modelException = ModelException
                 .factory(exception.getMessage(),
-                        Arrays.toString(exception.getStackTrace()),
+                        exception.getStackTrace(),
                         exception.getLocalizedMessage());
         repository.save(modelException);
     }
@@ -38,7 +37,7 @@ public class ExceptionProvider {
     public void saveException(@NotNull Exception exception, String reporter){
         ModelException modelException = ModelException
                 .factory(exception.getMessage(),
-                        Arrays.toString(exception.getStackTrace()),
+                        exception.getStackTrace(),
                         exception.getLocalizedMessage(),
                         reporter);
         repository.save(modelException);
@@ -55,7 +54,7 @@ public class ExceptionProvider {
     public void saveException(@NotNull Exception exception, String reporter, String extension){
         ModelException modelException = ModelException
                 .factory(exception.getMessage(),
-                        Arrays.toString(exception.getStackTrace()),
+                        exception.getStackTrace(),
                         exception.getLocalizedMessage(),
                         reporter);
         repository.save(modelException);

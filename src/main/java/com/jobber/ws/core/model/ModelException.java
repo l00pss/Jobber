@@ -9,6 +9,7 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.context.annotation.Scope;
 
 import javax.persistence.*;
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -53,8 +54,7 @@ public class ModelException {
     @Column(name = "REPORTER")
     private String reporter;
 
-    @Column(name = "STACK_TRACE")
-    @Lob
+    @Column(name = "STACK_TRACE",length = 500)
     private String stackTrace;
 
     @Column(name = "LOCALIZED_MESSAGE")
@@ -81,7 +81,7 @@ public class ModelException {
     /**
      * Exception modeli hazırlamaq üçün iki fərqli qurucu metod var.
      * @param exceptionName - Exception sinifinin adı
-     * @param stackTrace - Exceptionun verdiyi yerlərin başdan sona bütün yerləri
+     * @param stackTraceArr - Exceptionun verdiyi yerlərin başdan sona bütün yerləri
      * @param localizedMessage - Localized ismarıcı
      * @return Xüsusi Exception modeli. Heç vaxt <strong>Null</strong> dəyər döndürməz.
      * @see com.jobber.ws.core.exception.BaseException
@@ -90,8 +90,8 @@ public class ModelException {
      * @version 2022 Aprel 17
      */
     @Contract("_, _, _ -> new")
-    public static @NotNull ModelException factory(String exceptionName, String stackTrace, String localizedMessage){
-        return new ModelException(exceptionName,stackTrace,localizedMessage,null,null);
+    public static @NotNull ModelException factory(String exceptionName, StackTraceElement[] stackTraceArr, String localizedMessage){
+        return new ModelException(exceptionName,ModelException.renderStackTrace(stackTraceArr),localizedMessage,null,null);
     }
 
 
@@ -101,7 +101,7 @@ public class ModelException {
     /**
      * Exception modeli hazırlamaq üçün iki fərqli qurucu metod var. <strong>Bu metod reporteridə tutur.</strong>
      * @param exceptionName - Exception sinifinin adı
-     * @param stackTrace - Exceptionun verdiyi yerlərin başdan sona bütün yerləri
+     * @param stackTraceArr - Exceptionun verdiyi yerlərin başdan sona bütün yerləri
      * @param localizedMessage - Localized ismarıcı
      * @param reporter - Əgər xəta xüsusi bir istifadəçidə və ya yerdə olubdursa onun haqqında məlumatı tutur
      * @return Xüsusi Exception modeli. Heç vaxt <strong>Null</strong> dəyər döndürməz.
@@ -111,8 +111,8 @@ public class ModelException {
      * @version 2022 Aprel 17
      */
     @Contract("_, _, _, _ -> new")
-    public static @NotNull ModelException factory(String exceptionName, String stackTrace, String localizedMessage, String reporter){
-        return new ModelException(exceptionName,stackTrace,localizedMessage,reporter,null);
+    public static @NotNull ModelException factory(String exceptionName, StackTraceElement[] stackTraceArr, String localizedMessage, String reporter){
+        return new ModelException(exceptionName,ModelException.renderStackTrace(stackTraceArr),localizedMessage,reporter,null);
     }
 
 
@@ -122,7 +122,7 @@ public class ModelException {
     /**
      * Exception modeli hazırlamaq üçün iki fərqli qurucu metod var. <strong>Bu metod reporteridə tutur.</strong>
      * @param exceptionName - Exception sinifinin adı
-     * @param stackTrace - Exceptionun verdiyi yerlərin başdan sona bütün yerləri
+     * @param stackTraceArr - Exceptionun verdiyi yerlərin başdan sona bütün yerləri
      * @param localizedMessage - Localized ismarıcı
      * @param reporter - Əgər xəta xüsusi bir istifadəçidə və ya yerdə olubdursa onun haqqında məlumatı tutur.
      * @param extension - Əlavə qeydlər bildirmək üçün dəyişən
@@ -133,10 +133,27 @@ public class ModelException {
      * @version 2022 Aprel 17
      */
     @Contract("_, _, _, _ -> new")
-    public static @NotNull ModelException factory(String exceptionName, String stackTrace, String localizedMessage, String reporter,String extension){
-        return new ModelException(exceptionName,stackTrace,localizedMessage,reporter,extension);
+    public static @NotNull ModelException factory(String exceptionName, StackTraceElement[] stackTraceArr, String localizedMessage, String reporter,String extension){
+        return new ModelException(exceptionName,ModelException.renderStackTrace(stackTraceArr),localizedMessage,reporter,extension);
     }
 
+
+    private static String renderStackTrace(StackTraceElement[] stackTraceElements) {
+        StringBuilder builder = new StringBuilder();
+        int i = 0;
+        while (i < 4) {
+            builder.append("[ ")
+                    .append("{ Class Name:  ")
+                    .append(stackTraceElements[i].getClassName())
+                    .append("} { Line:  ")
+                    .append(stackTraceElements[i].getLineNumber())
+                    .append("} { Method Name :  ")
+                    .append(stackTraceElements[i].getMethodName())
+                    .append(" } ]\n");
+            i++;
+        }
+        return builder.toString();
+    }
 
     @Override
     public String toString() {

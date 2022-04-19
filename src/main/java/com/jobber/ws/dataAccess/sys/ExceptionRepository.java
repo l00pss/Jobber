@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ExampleExReposirory extends JpaRepository<ModelException,Long> {
+public interface ExceptionRepository extends JpaRepository<ModelException,Long> {
 }
