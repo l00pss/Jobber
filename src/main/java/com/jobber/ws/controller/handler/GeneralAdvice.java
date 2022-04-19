@@ -1,7 +1,6 @@
 package com.jobber.ws.controller.handler;
 
 import com.jobber.ws.core.exception.ExceptionProvider;
-import com.jobber.ws.core.exception.UnknownException;
 import com.jobber.ws.core.response.error.ErrorResponse;
 import com.jobber.ws.core.response.factory.AbstractResponseFactory;
 import lombok.RequiredArgsConstructor;

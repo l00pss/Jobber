@@ -1,6 +1,8 @@
-package com.jobber.ws.core.exception;
+package com.jobber.ws.core.exception.core;
 
-public class UnknownException extends BaseException{
+import com.jobber.ws.core.exception.core.BaseException;
+
+public class UnknownException extends BaseException {
 
     public UnknownException(){
         super();

@@ -4,22 +4,20 @@ import com.jobber.ws.core.exception.core.BaseException;
 import com.jobber.ws.core.exception.JException;
 
 @JException
-public class UserNotFoundException extends BaseException{
-
-    public UserNotFoundException(){
+public class NullValueException extends BaseException {
+    public NullValueException(){
         super();
     }
 
-    public UserNotFoundException(String message){
+    public NullValueException(String message){
         super(message);
     }
 
-    public UserNotFoundException(String message,String reporter){
+    public NullValueException(String message,String reporter){
         super(message,reporter);
     }
 
-    public UserNotFoundException(String message,String reporter,String ext){
+    public NullValueException(String message,String reporter,String ext){
         super(message,reporter,ext);
     }
-
 }

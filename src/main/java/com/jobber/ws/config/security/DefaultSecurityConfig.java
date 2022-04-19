@@ -12,7 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 @RequiredArgsConstructor
 @Profile("prod")
-public class TestSecurityConfig extends WebSecurityConfigurerAdapter {
+public class DefaultSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Value("${service.security.secure-key-role}")
     private  String  ROLE;

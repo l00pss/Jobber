@@ -1,6 +1,6 @@
 package com.jobber.ws.business;
 
-import com.jobber.ws.core.exception.UnknownException;
+import com.jobber.ws.core.exception.core.UnknownException;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 

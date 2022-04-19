@@ -1,21 +1,20 @@
 package com.jobber.ws.core.model;
 
+import com.jobber.ws.core.exception.core.BaseException;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.context.annotation.Scope;
 
 import javax.persistence.*;
-import java.util.Arrays;
 import java.util.Date;
 
 /**
- * Bu sinif yalnız layihədə yer alan {@link com.jobber.ws.core.exception.BaseException BaseException}
+ * Bu sinif yalnız layihədə yer alan {@link BaseException BaseException}
  * törəmələri olan Exceptionları modelləmək üçün istifadə edilə bilər. Bu modeldən tam istifadə edə bilmək üçün
- * {@link com.jobber.ws.core.exception.BaseException BaseException} qurucu metodlarının hamısı xüsusi {@link Exception Exception}
+ * {@link BaseException BaseException} qurucu metodlarının hamısı xüsusi {@link Exception Exception}
  * sinifi tərəfindən implement edilməlidir. Bu sinif <strong>Spring</strong> tərəfində <strong>Prototype</strong> olaraq yüklənir.
  * Burada hazırlanan model {@link com.jobber.ws.dataAccess.sys.ExceptionRepository ExceptionRepository} vasitəsi ilə
  * verilənlər bazasına yazılır.
@@ -27,7 +26,7 @@ import java.util.Date;
  *                         exception.getLocalizedMessage());
  *  </pre></blockquote>
  * @see com.jobber.ws.dataAccess.sys.ExceptionRepository
- * @see com.jobber.ws.core.exception.BaseException
+ * @see BaseException
  * @since 1.0.0
  * @author Vugar Mammadli
  * @version 2022 Aprel 17
@@ -84,7 +83,7 @@ public class ModelException {
      * @param stackTraceArr - Exceptionun verdiyi yerlərin başdan sona bütün yerləri
      * @param localizedMessage - Localized ismarıcı
      * @return Xüsusi Exception modeli. Heç vaxt <strong>Null</strong> dəyər döndürməz.
-     * @see com.jobber.ws.core.exception.BaseException
+     * @see BaseException
      * @since 1.0.0
      * @author Vugar Mammadli
      * @version 2022 Aprel 17
@@ -105,7 +104,7 @@ public class ModelException {
      * @param localizedMessage - Localized ismarıcı
      * @param reporter - Əgər xəta xüsusi bir istifadəçidə və ya yerdə olubdursa onun haqqında məlumatı tutur
      * @return Xüsusi Exception modeli. Heç vaxt <strong>Null</strong> dəyər döndürməz.
-     * @see com.jobber.ws.core.exception.BaseException
+     * @see BaseException
      * @since 1.0.0
      * @author Vugar Mammadli
      * @version 2022 Aprel 17
@@ -127,7 +126,7 @@ public class ModelException {
      * @param reporter - Əgər xəta xüsusi bir istifadəçidə və ya yerdə olubdursa onun haqqında məlumatı tutur.
      * @param extension - Əlavə qeydlər bildirmək üçün dəyişən
      * @return Xüsusi Exception modeli. Heç vaxt <strong>Null</strong> dəyər döndürməz.
-     * @see com.jobber.ws.core.exception.BaseException
+     * @see BaseException
      * @since 1.0.0
      * @author Vugar Mammadli
      * @version 2022 Aprel 17

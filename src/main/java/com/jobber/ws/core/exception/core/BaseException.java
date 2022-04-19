@@ -1,6 +1,7 @@
-package com.jobber.ws.core.exception;
+package com.jobber.ws.core.exception.core;
 
 import com.jobber.ws.controller.handler.GeneralAdvice;
+import com.jobber.ws.core.exception.ExceptionProvider;
 import com.jobber.ws.core.model.ModelException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

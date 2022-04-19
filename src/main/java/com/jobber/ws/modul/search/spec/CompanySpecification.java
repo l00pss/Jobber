@@ -1,7 +1,7 @@
-package com.jobber.ws.business.search.spec;
+package com.jobber.ws.modul.search.spec;
 
 import com.jobber.ws.model.entity.company.Company;
-import com.jobber.ws.business.search.criteria.CompanySearchCritieria;
+import com.jobber.ws.modul.search.criteria.CompanySearchCritieria;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.domain.Specification;
 

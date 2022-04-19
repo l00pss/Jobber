@@ -1,6 +1,6 @@
 package com.jobber.ws.controller.api.common;
 
-import com.jobber.ws.business.search.filter.WorkerFilter;
+import com.jobber.ws.modul.search.filter.WorkerFilter;
 import com.jobber.ws.model.dto.response.user.SimpleWorkerDTO;
 import com.jobber.ws.model.dto.response.user.ViewWorkerDTO;
 import com.jobber.ws.model.dto.response.vacancy.SimpleVacancyDTO;

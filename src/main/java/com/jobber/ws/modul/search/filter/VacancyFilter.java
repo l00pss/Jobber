@@ -1,4 +1,4 @@
-package com.jobber.ws.business.search.filter;
+package com.jobber.ws.modul.search.filter;
 
 import org.springframework.stereotype.Component;
 

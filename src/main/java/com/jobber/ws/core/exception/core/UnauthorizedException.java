@@ -1,6 +1,8 @@
-package com.jobber.ws.core.exception;
+package com.jobber.ws.core.exception.core;
 
-public class UnauthorizedException extends BaseException{
+import com.jobber.ws.core.exception.core.BaseException;
+
+public class UnauthorizedException extends BaseException {
     public UnauthorizedException(){
         super();
     }

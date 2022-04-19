@@ -6,8 +6,6 @@ import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-
 @Component
 @RequiredArgsConstructor
 public class ExceptionProvider {

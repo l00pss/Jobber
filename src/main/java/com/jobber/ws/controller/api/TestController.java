@@ -1,7 +1,7 @@
 package com.jobber.ws.controller.api;
 
 import com.jobber.ws.business.TestManager;
-import com.jobber.ws.core.exception.UnknownException;
+import com.jobber.ws.core.exception.core.UnknownException;
 import com.jobber.ws.core.response.Response;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
