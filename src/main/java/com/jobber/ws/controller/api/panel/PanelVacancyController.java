@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/1.0/panel/vacancy")
+@RequestMapping("api/1.0/panel/employer/vacancy")
 @RequiredArgsConstructor
 public class PanelVacancyController {
     private final PanelVacancyService panelVacancyService;

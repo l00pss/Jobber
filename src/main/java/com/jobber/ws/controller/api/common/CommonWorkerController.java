@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/1.0/worker")
+@RequestMapping("api/1.0/common/worker")
 @RequiredArgsConstructor
 public class CommonWorkerController {
 

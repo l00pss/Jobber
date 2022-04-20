@@ -2,6 +2,7 @@ package com.jobber.ws.controller.api.common;
 
 
 import com.jobber.ws.business.abstracts.common.CommonCompanyService;
+import com.jobber.ws.core.response.factory.AbstractResponseFactory;
 import com.jobber.ws.modul.search.filter.CompanyFilter;
 import com.jobber.ws.model.dto.response.company.SimpleCompanyDTO;
 import com.jobber.ws.model.dto.response.company.ViewCompanyDTO;
@@ -16,11 +17,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/1.0/company")
+@RequestMapping("api/1.0/common/company")
 @RequiredArgsConstructor
 public class CommonCompanyController {
 
     private final CommonCompanyService companyService;
+    private final AbstractResponseFactory<String> abstractResponseFactory;
+
+    @GetMapping("/findAll")
+    public ResponseEntity<DataResponse<String>>findAll(){
+        return new ResponseEntity<>( abstractResponseFactory.factorySuccessDataResult("OKEY"),HttpStatus.OK);
+    }
 
     @PostMapping("/findAll")
     public ResponseEntity<DataResponse<List<SimpleCompanyDTO>>> findAll(@RequestBody SimplePageable pageable){
