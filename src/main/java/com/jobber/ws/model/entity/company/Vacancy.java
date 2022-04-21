@@ -3,7 +3,7 @@ package com.jobber.ws.model.entity.company;
 import com.jobber.ws.model.dto.request.NewVacancyDTO;
 import com.jobber.ws.model.entity.other.Enroll;
 import com.jobber.ws.model.entity.other.Mark;
-import com.jobber.ws.model.statics.Localization;
+import com.jobber.ws.model.entity.other.Visibility;
 import lombok.*;
 
 import javax.persistence.*;
@@ -57,12 +57,6 @@ public class Vacancy {
     @Temporal(TemporalType.DATE)
     private Date createDate = new Date();
 
-    @Column(name = "IS_ACTIVE",nullable = false)
-    private boolean isActive  = true;
-
-    @Column(name = "IS_DELETED",nullable = false)
-    private boolean isDeleted = false;
-
     @Column(name = "IS_REMOTE",nullable = false)
     private boolean isRemote = false;
 
@@ -79,6 +73,8 @@ public class Vacancy {
     private List<Views> views;
 
 
+    @OneToOne
+    private Visibility visibility = Visibility.ACTIVE;
 
     public Vacancy(NewVacancyDTO vacancyDTO){
         this.modificationDate = new Date();
@@ -87,9 +83,7 @@ public class Vacancy {
         this.expiredDate = vacancyDTO.getDueDate();
     }
 
-    @Transactional
     public void delete() {
-        this.isDeleted = true;
-        this.isActive = false;
+        this.visibility = Visibility.INACTIVE;
     }
 }

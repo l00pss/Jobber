@@ -1,6 +1,7 @@
 package com.jobber.ws.model.entity.company;
 
 import com.jobber.ws.model.entity.contact.Contact;
+import com.jobber.ws.model.entity.other.Visibility;
 import com.jobber.ws.model.entity.user.Worker;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,6 +22,9 @@ public final class Company {
     @Id
     private Long id;
 
+    @Column(name = "IS_APPROVED",nullable = false)
+    private boolean isApproved = false;
+
     @Column(name = "NAME")
     private String name;
 
@@ -39,8 +43,8 @@ public final class Company {
     @OneToOne
     private Contact contact;
 
-    @Column(name = "IS_ACTIVE")
-    private Boolean isActive;
+    @OneToOne
+    private Visibility visibility = Visibility.ACTIVE;
 
     @ManyToMany
     private Set<Worker> referenced;

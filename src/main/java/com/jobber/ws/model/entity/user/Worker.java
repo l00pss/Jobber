@@ -26,6 +26,12 @@ import java.util.Set;
 @NoArgsConstructor
 public final class Worker extends User  implements UserDetails , Comparable<Worker> {
 
+    @Column(name = "ROLE",updatable = false,insertable = false,nullable = false)
+    private static final String ROLE = "WORKER";
+
+    @Column(name = "IS_APPROVED",nullable = false)
+    private boolean isApproved = false;
+
     @OneToOne
     private Curriculum curriculum;
 
@@ -40,6 +46,8 @@ public final class Worker extends User  implements UserDetails , Comparable<Work
 
     @ManyToMany
     private Set<Company> references;
+
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -19,6 +20,10 @@ import java.util.Collection;
 @AllArgsConstructor
 @NoArgsConstructor
 public final class Employer extends User implements UserDetails {
+
+    @Column(name = "ROLE",updatable = false,insertable = false,nullable = false)
+    private static final String ROLE = "EMPLOYER";
+
     @OneToOne
     private Company company;
 

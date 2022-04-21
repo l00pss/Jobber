@@ -2,6 +2,7 @@ package com.jobber.ws.model.entity.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jobber.ws.model.entity.contact.Contact;
+import com.jobber.ws.model.entity.other.Visibility;
 import com.jobber.ws.model.sys.SessionKey;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,6 +38,7 @@ public class User {
 
     @Column(name = "PASSWORD")
     @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$")
+    @JsonIgnore
     private String password;
 
     @Column(name = "EMAIL_OF_USER",unique = true)
@@ -60,18 +62,19 @@ public class User {
 
     @Column(name = "CREATION_DATE")
     @Temporal(TemporalType.TIMESTAMP)
+    @JsonIgnore
     private Date creationDate = new Date();
 
     @Column(name = "MODIFICATION_DATE")
     @Temporal(TemporalType.TIMESTAMP)
+    @JsonIgnore
     private Date modificationDate;
 
     @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY)
     private SessionKey key;
 
-    @Column(name = "IS_DELETED_ACCOUNT")
-    @JsonIgnore
-    private boolean isDeletedAccount = false;
+    @OneToOne
+    private Visibility visibility = Visibility.ACTIVE;
 
 }
