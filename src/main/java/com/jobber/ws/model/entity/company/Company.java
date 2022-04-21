@@ -1,5 +1,6 @@
 package com.jobber.ws.model.entity.company;
 
+import com.jobber.ws.model.entity.abstracts.FunctionVisibility;
 import com.jobber.ws.model.entity.contact.Contact;
 import com.jobber.ws.model.entity.other.Visibility;
 import com.jobber.ws.model.entity.user.Worker;
@@ -18,7 +19,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public final class Company {
+public final class Company implements FunctionVisibility {
     @Id
     private Long id;
 
@@ -48,4 +49,9 @@ public final class Company {
 
     @ManyToMany
     private Set<Worker> referenced;
+
+    @Override
+    public boolean isAppropriate(){
+        return this.visibility.isAppropriate();
+    }
 }

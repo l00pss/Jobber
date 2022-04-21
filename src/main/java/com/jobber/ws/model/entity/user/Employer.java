@@ -19,7 +19,7 @@ import java.util.Collection;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public final class Employer extends User implements UserDetails {
+public  class Employer extends User  {
 
     @Column(name = "ROLE",updatable = false,insertable = false,nullable = false)
     private static final String ROLE = "EMPLOYER";

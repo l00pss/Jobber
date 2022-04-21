@@ -24,7 +24,7 @@ import java.util.Set;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public final class Worker extends User  implements UserDetails , Comparable<Worker> {
+public final class Worker extends User implements Comparable<Worker> {
 
     @Column(name = "ROLE",updatable = false,insertable = false,nullable = false)
     private static final String ROLE = "WORKER";

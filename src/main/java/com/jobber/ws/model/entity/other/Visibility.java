@@ -1,12 +1,12 @@
 package com.jobber.ws.model.entity.other;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.jobber.ws.model.entity.abstracts.FunctionVisibility;
+import lombok.*;
 import org.springframework.context.annotation.Scope;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "VISIBILITY")
@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @Scope(scopeName = "prototype")
-public final class Visibility {
+public final class Visibility implements FunctionVisibility {
     @SequenceGenerator(name = "COM_GEN_SEQ",
             sequenceName = "COM_SEQ",
             allocationSize = 1
@@ -24,6 +24,11 @@ public final class Visibility {
     @Column(name = "ID")
     @GeneratedValue(generator = "COM_GEN_SEQ")
     private Long id;
+
+    @LastModifiedDate
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "MODIFICATION_DATE",nullable = false)
+    private Date modificationDate = new Date();
 
     @Column(name = "IS_ACTIVE")
     private boolean isActive = true;
@@ -37,6 +42,7 @@ public final class Visibility {
     @Column(name = "IS_DELETED")
     private boolean isDeleted = false;
 
+    @Override
     public  boolean isAppropriate(){
         return isActive && !isBlocked && !isFrozen && !isDeleted;
     }

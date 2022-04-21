@@ -1,6 +1,7 @@
 package com.jobber.ws.model.entity.company;
 
 import com.jobber.ws.model.dto.request.NewVacancyDTO;
+import com.jobber.ws.model.entity.abstracts.FunctionVisibility;
 import com.jobber.ws.model.entity.other.Enroll;
 import com.jobber.ws.model.entity.other.Mark;
 import com.jobber.ws.model.entity.other.Visibility;
@@ -16,7 +17,7 @@ import java.util.Set;
 @Table(name = "VACANCY")
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
-public class Vacancy {
+public class Vacancy implements FunctionVisibility {
     @SequenceGenerator(name = "VACANCY_GEN_SEQ",
             sequenceName = "GENERAL_SEQ",
             allocationSize = 100,
@@ -60,6 +61,7 @@ public class Vacancy {
     @Column(name = "IS_REMOTE",nullable = false)
     private boolean isRemote = false;
 
+    @Column(name = "LOCALIZATION_ID",nullable = false)
     private Long localizationId = 0L;
 
     @OneToMany(mappedBy = "vacancy")
@@ -71,7 +73,6 @@ public class Vacancy {
 
     @OneToMany
     private List<Views> views;
-
 
     @OneToOne
     private Visibility visibility = Visibility.ACTIVE;
@@ -85,5 +86,10 @@ public class Vacancy {
 
     public void delete() {
         this.visibility = Visibility.INACTIVE;
+    }
+
+    @Override
+    public boolean isAppropriate(){
+        return this.visibility.isAppropriate();
     }
 }

@@ -1,12 +1,19 @@
 package com.jobber.ws.model.entity.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.jobber.ws.model.entity.abstracts.FunctionVisibility;
 import com.jobber.ws.model.entity.contact.Contact;
 import com.jobber.ws.model.entity.other.Visibility;
 import com.jobber.ws.model.sys.SessionKey;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
@@ -15,7 +22,8 @@ import java.util.Set;
 
 @MappedSuperclass
 @Getter @AllArgsConstructor @NoArgsConstructor
-public class User {
+@EntityListeners(AuditingEntityListener.class)
+public abstract class User implements FunctionVisibility  , UserDetails {
     @SequenceGenerator(name = "USER_GEN_SEQ",
             sequenceName = "USER_SEQ",
             allocationSize = 100,
@@ -60,21 +68,37 @@ public class User {
     @Column(name = "IS_PREMIUM")
     private Boolean isPremiumAccount = false;
 
-    @Column(name = "CREATION_DATE")
-    @Temporal(TemporalType.TIMESTAMP)
-    @JsonIgnore
-    private Date creationDate = new Date();
-
-    @Column(name = "MODIFICATION_DATE")
-    @Temporal(TemporalType.TIMESTAMP)
-    @JsonIgnore
-    private Date modificationDate;
-
     @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY)
     private SessionKey key;
 
+
+    //TODO Bu bir obyekt halina salinmalidir
+    @Column(name = "created_date", nullable = false, updatable = false)
+    @CreatedDate
+    private long createdDate;
+
+    @Column(name = "modified_date")
+    @LastModifiedDate
+    private long modifiedDate;
+
+    @Column(name = "created_by")
+    @CreatedBy
+    private String createdBy;
+
+    @Column(name = "modified_by")
+    @LastModifiedBy
+    private String modifiedBy;
+    //TODO ------------------------------------
+
     @OneToOne
     private Visibility visibility = Visibility.ACTIVE;
+
+
+
+    @Override
+    public boolean isAppropriate(){
+        return this.visibility.isAppropriate();
+    }
 
 }
