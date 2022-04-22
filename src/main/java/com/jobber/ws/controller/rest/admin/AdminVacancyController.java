@@ -1,4 +1,4 @@
-package com.jobber.ws.controller.api.admin;
+package com.jobber.ws.controller.rest.admin;
 
 import com.jobber.ws.modul.search.filter.VacancyFilter;
 import com.jobber.ws.model.dto.request.NewVacancyDTO;

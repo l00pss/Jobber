@@ -1,4 +1,4 @@
-package com.jobber.ws.controller.api.common;
+package com.jobber.ws.controller.rest.common;
 
 
 import com.jobber.ws.business.abstracts.common.CommonCompanyService;

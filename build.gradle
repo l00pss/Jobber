@@ -3,6 +3,7 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
     id "io.swagger.core.v3.swagger-gradle-plugin" version "2.2.0"
+    id "com.graphql_java_generator.graphql-gradle-plugin" version "1.18.6"
 }
 
 group = 'com.jobber'

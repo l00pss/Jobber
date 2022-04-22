@@ -1,11 +1,9 @@
-package com.jobber.ws.controller.api.jobber;
+package com.jobber.ws.controller.graph;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("api/1.0/jobber/employer")
-@RequiredArgsConstructor
-public class JobberEmployerController {
+
+public class OperationGController {
 }

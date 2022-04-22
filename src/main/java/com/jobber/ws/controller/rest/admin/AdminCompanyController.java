@@ -1,4 +1,4 @@
-package com.jobber.ws.controller.api.admin;
+package com.jobber.ws.controller.rest.admin;
 
 import com.jobber.ws.core.response.DataResponse;
 import com.jobber.ws.core.response.factory.AbstractResponseFactory;
