@@ -1,6 +1,6 @@
 package com.jobber.ws.business.concretes.vacancy;
 
-import com.jobber.ws.business.abstracts.panel.PanelVacancyService;
+import com.jobber.ws.business.abstracts.admin.AdminVacancyService;
 import com.jobber.ws.dataAccess.vacancy.PanelVacancyRepository;
 import com.jobber.ws.model.factory.abstracts.AbstractVacancyFactory;
 import com.jobber.ws.model.dto.request.NewVacancyDTO;
@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class PanelVacancyManager implements PanelVacancyService {
+public class AdminVacancyManager implements AdminVacancyService {
     private final AbstractResponseFactory<ViewVacancyDTO> responseFactory;
     private final AbstractResponseFactory<List<SimpleVacancyDTO>> responseFactoryAsList;
     private final PanelVacancyRepository panelVacancyRepository;

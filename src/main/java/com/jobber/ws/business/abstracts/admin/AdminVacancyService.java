@@ -1,4 +1,4 @@
-package com.jobber.ws.business.abstracts.panel;
+package com.jobber.ws.business.abstracts.admin;
 
 import com.jobber.ws.model.dto.request.NewVacancyDTO;
 import com.jobber.ws.model.dto.response.vacancy.SimpleVacancyDTO;
@@ -9,7 +9,7 @@ import com.jobber.ws.core.response.SimplePageable;
 
 import java.util.List;
 
-public interface PanelVacancyService {
+public interface AdminVacancyService {
 
     DataResponse<ViewVacancyDTO> save(NewVacancyDTO newVacancyDTO);
 
