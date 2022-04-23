@@ -52,6 +52,7 @@ public final class Worker extends User implements Comparable<Worker> {
         return null;
     }
 
+
     @Override
     public boolean isAccountNonExpired() {
         return false;
@@ -77,5 +78,5 @@ public final class Worker extends User implements Comparable<Worker> {
     public int compareTo(@NotNull Worker o) {
         return 0;
     }
-    
+
 }

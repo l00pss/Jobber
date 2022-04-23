@@ -31,7 +31,6 @@ public final class Visibility implements FunctionVisibility {
     private Date modificationDate = new Date();
 
 
-
     @Column(name = "IS_ACTIVE")
     private boolean isActive = true;
 
@@ -44,6 +43,8 @@ public final class Visibility implements FunctionVisibility {
     @Column(name = "IS_DELETED")
     private boolean isDeleted = false;
 
+    @Column(name = "RESULT_REASON")
+    private String resultReason;
 
     @Override
     public  boolean isAppropriate(){

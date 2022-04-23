@@ -1,7 +1,7 @@
 package com.jobber.ws.controller.rest.admin;
 
-import com.jobber.ws.core.response.DataResponse;
-import com.jobber.ws.core.response.factory.AbstractResponseFactory;
+import com.jobber.ws.util.response.DataResponse;
+import com.jobber.ws.util.response.factory.AbstractResponseFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

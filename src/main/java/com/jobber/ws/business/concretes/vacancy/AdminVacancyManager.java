@@ -7,16 +7,15 @@ import com.jobber.ws.model.dto.request.NewVacancyDTO;
 import com.jobber.ws.model.dto.response.vacancy.SimpleVacancyDTO;
 import com.jobber.ws.model.dto.response.vacancy.ViewVacancyDTO;
 import com.jobber.ws.model.entity.company.Vacancy;
-import com.jobber.ws.core.response.DataResponse;
-import com.jobber.ws.core.response.Response;
-import com.jobber.ws.core.response.SimplePageable;
-import com.jobber.ws.core.response.factory.AbstractResponseFactory;
+import com.jobber.ws.util.response.DataResponse;
+import com.jobber.ws.util.response.Response;
+import com.jobber.ws.util.response.SimplePageable;
+import com.jobber.ws.util.response.factory.AbstractResponseFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 @Service

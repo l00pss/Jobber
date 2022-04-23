@@ -2,13 +2,13 @@ package com.jobber.ws.controller.rest.common;
 
 
 import com.jobber.ws.business.abstracts.common.CommonCompanyService;
-import com.jobber.ws.core.response.factory.AbstractResponseFactory;
+import com.jobber.ws.util.response.factory.AbstractResponseFactory;
 import com.jobber.ws.modul.search.filter.CompanyFilter;
 import com.jobber.ws.model.dto.response.company.SimpleCompanyDTO;
 import com.jobber.ws.model.dto.response.company.ViewCompanyDTO;
 import com.jobber.ws.model.dto.response.vacancy.SimpleVacancyDTO;
-import com.jobber.ws.core.response.DataResponse;
-import com.jobber.ws.core.response.SimplePageable;
+import com.jobber.ws.util.response.DataResponse;
+import com.jobber.ws.util.response.SimplePageable;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

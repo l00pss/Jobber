@@ -56,8 +56,8 @@ public abstract class User implements FunctionVisibility  , UserDetails {
     private Password password;
 
     @JsonIgnore
-    @OneToOne(fetch = FetchType.LAZY)
-    private SessionKey key;
+    @OneToMany(fetch = FetchType.LAZY)
+    private Set<SessionKey> sessionKeys ;
 
     @OneToOne
     private Visibility visibility = Visibility.ACTIVE;

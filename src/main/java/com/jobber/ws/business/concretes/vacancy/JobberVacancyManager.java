@@ -3,8 +3,8 @@ package com.jobber.ws.business.concretes.vacancy;
 import com.jobber.ws.business.abstracts.jobber.JobberVacancyService;
 import com.jobber.ws.dataAccess.vacancy.JobberVacancyRepository;
 import com.jobber.ws.model.entity.company.Vacancy;
-import com.jobber.ws.core.response.Response;
-import com.jobber.ws.core.response.factory.AbstractResponseFactory;
+import com.jobber.ws.util.response.Response;
+import com.jobber.ws.util.response.factory.AbstractResponseFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
