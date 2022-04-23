@@ -63,8 +63,7 @@ public class AdminVacancyManager implements AdminVacancyService {
                         .findAll(pageable.factory())
                         .getContent()
                         .stream()
-                        .filter(Vacancy::isActive)
-                        .filter(Predicate.not(Vacancy::isDeleted))
+                        .filter(Vacancy::isAppropriate)
                         .filter(e->e.getExpiredDate().before(new Date()))
                         .map(SimpleVacancyDTO::new)
                         .collect(Collectors.toList());

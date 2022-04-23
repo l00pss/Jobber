@@ -47,8 +47,6 @@ public final class Worker extends User implements Comparable<Worker> {
     @ManyToMany
     private Set<Company> references;
 
-
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
@@ -79,4 +77,5 @@ public final class Worker extends User implements Comparable<Worker> {
     public int compareTo(@NotNull Worker o) {
         return 0;
     }
+    
 }

@@ -15,8 +15,8 @@ public interface GeneralVacancyRepository extends JpaRepository<Vacancy,Long> , 
     @Query(
             "SELECT v from Vacancy v " +
                     "where v.id =: id " +
-                    "and v.isDeleted=false " +
-                    "and v.isActive = true"
+                    "and v.visibility.isDeleted=false " +
+                    "and v.visibility.isActive = true"
     )
     Vacancy getByIdAndDeletedFalseAndActiveTrue(@Param("id") Long id);
 

@@ -14,8 +14,8 @@ public interface PanelVacancyRepository extends JpaRepository<Vacancy,Long>
     @Query(value =
             "SELECT v from Vacancy v " +
                     "where v.id =: id " +
-                    "and v.isDeleted=false " +
-                    "and v.isActive = true"
+                    "and v.visibility.isDeleted=false " +
+                    "and v.visibility.isActive = true"
     )
     Vacancy getByIdAndDeletedFalseAndActiveTrue(@Param("id") Long id);
 
@@ -23,15 +23,15 @@ public interface PanelVacancyRepository extends JpaRepository<Vacancy,Long>
     @Query(value =
             "SELECT v from Vacancy v " +
                     "where v.id =: id " +
-                    "and v.isDeleted=false "
+                    "and v.visibility.isDeleted=false "
     )
     Vacancy getByIdAndDeletedFalse(@Param("id") Long id);
 
     @Query(value =
             "SELECT v from Vacancy v " +
                     "where v.id =: id " +
-                    "and v.isDeleted=false " +
-                    "and v.isActive = true"
+                    "and v.visibility.isDeleted=false " +
+                    "and v.visibility.isActive = true"
     )
     List<Vacancy> getAllByDeletedFalseAndActiveTrue();
 }

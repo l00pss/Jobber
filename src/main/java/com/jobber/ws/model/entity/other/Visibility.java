@@ -12,7 +12,7 @@ import java.util.Date;
 @Table(name = "VISIBILITY")
 @Getter @Setter
 @Builder
-@NoArgsConstructor
+@NoArgsConstructor @AllArgsConstructor
 @Scope(scopeName = "prototype")
 public final class Visibility implements FunctionVisibility {
     @SequenceGenerator(name = "COM_GEN_SEQ",
@@ -30,6 +30,8 @@ public final class Visibility implements FunctionVisibility {
     @Column(name = "MODIFICATION_DATE",nullable = false)
     private Date modificationDate = new Date();
 
+
+
     @Column(name = "IS_ACTIVE")
     private boolean isActive = true;
 
@@ -42,16 +44,18 @@ public final class Visibility implements FunctionVisibility {
     @Column(name = "IS_DELETED")
     private boolean isDeleted = false;
 
+
     @Override
     public  boolean isAppropriate(){
         return isActive && !isBlocked && !isFrozen && !isDeleted;
     }
 
     @Transient
-    public static final Visibility ACTIVE = Visibility.builder().build();
+    public static final Visibility ACTIVE  =null; //= Visibility.builder().build();
 
     @Transient
-    public static final Visibility INACTIVE = Visibility.builder()
+    public static final Visibility INACTIVE
+            = Visibility.builder()
             .isBlocked(true)
             .isActive(false)
             .isFrozen(true)

@@ -3,7 +3,7 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
     id "io.swagger.core.v3.swagger-gradle-plugin" version "2.2.0"
-    id "com.graphql_java_generator.graphql-gradle-plugin" version "1.18.6"
+    //id "com.graphql_java_generator.graphql-gradle-plugin" version "1.18.6"
 }
 
 group = 'com.jobber'
@@ -24,9 +24,9 @@ jar {
 }
 
 dependencies {
-    implementation 'com.graphql-java:graphql-java:230521-nf-execution' // NEW
-    implementation 'com.graphql-java:graphql-java-spring-boot-starter-webmvc:2021-10-25T04-50-54-fbc162f' // NEW
-    implementation 'com.google.guava:guava:31.0-jre' // NEW
+    //implementation 'com.graphql-java:graphql-java:230521-nf-execution' // NEW
+    //implementation 'com.graphql-java:graphql-java-spring-boot-starter-webmvc:2021-10-25T04-50-54-fbc162f' // NEW
+    //implementation 'com.google.guava:guava:31.0-jre' // NEW
     implementation group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-data-rest'

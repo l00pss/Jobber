@@ -1,4 +1,4 @@
-package com.jobber.ws.dataAccess.user.general;
+package com.jobber.ws.dataAccess.user.common;
 
 import com.jobber.ws.model.entity.user.Employer;
 import org.springframework.data.jpa.repository.JpaRepository;

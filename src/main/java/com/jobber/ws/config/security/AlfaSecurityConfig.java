@@ -34,7 +34,7 @@ public class AlfaSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(wrkAccess)
                 .hasRole("WORKER")
                 .antMatchers("/api/1.0/jobber")
-                .hasRole("ADMIN")
+                .hasRole("JOBBER")
                 .anyRequest()
                 .authenticated()
                 .and().httpBasic();
@@ -53,7 +53,7 @@ public class AlfaSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .withUser("ADMIN")
                 .password(passwordEncoder.encode("12345"))
-                .roles("ADMIN");
+                .roles("JOBBER");
     }
 
 
