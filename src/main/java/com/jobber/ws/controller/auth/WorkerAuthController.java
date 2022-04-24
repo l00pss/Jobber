@@ -1,9 +1,28 @@
 package com.jobber.ws.controller.auth;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.jobber.ws.model.dto.request.AuthCredential;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/1.0/auth/employer")
+@RequestMapping("api/1.0/auth/worker")
 public class WorkerAuthController {
+
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody AuthCredential authCredential){
+
+        return null;
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<String> logout(@RequestBody AuthCredential authCredential){
+
+        return null;
+    }
+
+    @PostMapping("/forgot")
+    public ResponseEntity<String> forgotPassword(@RequestParam String email){
+
+        return null;
+    }
 }

@@ -1,15 +1,17 @@
 package com.jobber.ws.model.dto.request;
 
-import com.jobber.ws.util.exception.InvalidRequestException;
 import com.jobber.ws.util.exception.core.BaseException;
 import com.jobber.ws.util.exception.logic.InvalidLengthException;
 import com.jobber.ws.util.exception.logic.NullValueException;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.springframework.stereotype.Component;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.annotation.PostConstruct;
 
-@Getter
+@Getter @Setter
+@AllArgsConstructor @NoArgsConstructor
 public final class AuthCredential {
     private String username;
     private String password;

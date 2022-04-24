@@ -29,4 +29,6 @@ public interface GenerateService {
         IntStream specialChars = random.ints(count, 33, 45);
         return specialChars.mapToObj(data -> (char) data);
     }
+
+
 }
