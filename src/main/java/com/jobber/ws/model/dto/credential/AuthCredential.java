@@ -1,4 +1,4 @@
-package com.jobber.ws.model.dto.request;
+package com.jobber.ws.model.dto.credential;
 
 import com.jobber.ws.util.exception.core.BaseException;
 import com.jobber.ws.util.exception.logic.InvalidLengthException;

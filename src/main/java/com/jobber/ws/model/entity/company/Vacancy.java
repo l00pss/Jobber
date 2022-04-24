@@ -6,28 +6,28 @@ import com.jobber.ws.model.entity.other.Enroll;
 import com.jobber.ws.model.entity.other.Mark;
 import com.jobber.ws.model.entity.other.Visibility;
 import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 @Entity
 @Table(name = "VACANCY")
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
 public class Vacancy implements FunctionVisibility {
-    @SequenceGenerator(name = "VACANCY_GEN_SEQ",
-            sequenceName = "GENERAL_SEQ",
-            allocationSize = 100,
-            initialValue = 3
-    )
-
     @Id
-    @Column(name = "ID")
-    @GeneratedValue(generator = "VACANCY_GEN_SEQ")
-    private Long id;
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "org.hibernate.id.UUIDGenerator"
+    )
+    @Column(name = "id", updatable = false, nullable = false)
+    private UUID id;
 
 
     @ManyToOne

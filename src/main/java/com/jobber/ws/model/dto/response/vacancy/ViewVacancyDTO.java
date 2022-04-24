@@ -4,13 +4,14 @@ import com.jobber.ws.model.entity.company.Vacancy;
 import lombok.Getter;
 
 import java.util.Date;
+import java.util.UUID;
 
 @Getter
 public class ViewVacancyDTO {
 
     private static transient Vacancy vacancy;
 
-    private final Long id;
+    private final UUID id;
 
     private final String title;
 

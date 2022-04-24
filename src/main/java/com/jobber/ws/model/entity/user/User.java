@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -21,21 +22,21 @@ import javax.validation.constraints.Pattern;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Set;
+import java.util.UUID;
 
-@MappedSuperclass
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Getter @AllArgsConstructor @NoArgsConstructor @Setter
 @EntityListeners(AuditingEntityListener.class)
 public abstract class User implements FunctionVisibility  , UserDetails {
-    @SequenceGenerator(name = "USER_GEN_SEQ",
-            sequenceName = "USER_SEQ",
-            allocationSize = 100,
-            initialValue = 3
-    )
-
     @Id
-    @Column(name = "ID")
-    @GeneratedValue(generator = "USER_GEN_SEQ")
-    private Long id;
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "org.hibernate.id.UUIDGenerator"
+    )
+    @Column(name = "id", updatable = false, nullable = false)
+    private UUID id;
 
     //TODO Bu bir obyekt halina salinmalidir
     @Column(name = "created_date", nullable = false, updatable = false)
@@ -45,7 +46,6 @@ public abstract class User implements FunctionVisibility  , UserDetails {
     @Column(name = "modified_date")
     @LastModifiedDate
     private long modifiedDate;
-    //TODO ------------------------------------
 
     @OneToOne
     private Profile profile;
@@ -62,7 +62,6 @@ public abstract class User implements FunctionVisibility  , UserDetails {
 
     @OneToOne
     private Visibility visibility = Visibility.ACTIVE;
-
 
     @Override
     public boolean isAppropriate(){

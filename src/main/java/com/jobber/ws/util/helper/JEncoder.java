@@ -6,7 +6,7 @@ import java.util.Base64;
 
 @Component
 public class JEncoder {
-    enum Strategy {
+    public enum Strategy {
         BASIC,
         WITHOUT_PADDING
     }

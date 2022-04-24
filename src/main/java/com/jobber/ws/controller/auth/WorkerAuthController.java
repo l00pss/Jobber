@@ -1,6 +1,6 @@
 package com.jobber.ws.controller.auth;
 
-import com.jobber.ws.model.dto.request.AuthCredential;
+import com.jobber.ws.model.dto.credential.AuthCredential;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,6 +10,12 @@ public class WorkerAuthController {
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody AuthCredential authCredential){
+
+        return null;
+    }
+
+    @PostMapping("/register")
+    public ResponseEntity<String> register(@RequestBody AuthCredential authCredential){
 
         return null;
     }
