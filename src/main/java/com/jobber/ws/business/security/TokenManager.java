@@ -30,7 +30,7 @@ public class TokenManager implements TokenService {
     private final WorkerRepository workerRepository;
 
 
-
+    // FIXME: 23.04.22 Hal hazırda secret key statik olaraq saxlanılır ancaq dinamik implementasiya yazılmalıdır.
     @Transactional
     String saveSession(String role, String username) throws AccessDeniedException {
        String key =  keyGenerator.generate();
@@ -62,6 +62,12 @@ public class TokenManager implements TokenService {
                 .compact();
     }
 
+
+    @Override
+    public String getUsername(String token) {
+        Claims claims = this.getClaims(token);
+        return claims.getSubject();
+    }
 
     @Override
     public boolean validate(String token) {

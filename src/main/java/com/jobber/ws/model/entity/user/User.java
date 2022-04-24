@@ -18,6 +18,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
+import java.util.Collection;
 import java.util.Date;
 import java.util.Set;
 
@@ -61,6 +62,7 @@ public abstract class User implements FunctionVisibility  , UserDetails {
 
     @OneToOne
     private Visibility visibility = Visibility.ACTIVE;
+
 
     @Override
     public boolean isAppropriate(){

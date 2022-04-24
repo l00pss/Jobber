@@ -21,8 +21,8 @@ import java.util.Collection;
 @NoArgsConstructor
 public  class Employer extends User  {
 
-    @Column(name = "ROLE",updatable = false,insertable = false,nullable = false)
-    private static final String ROLE = "EMPLOYER";
+//    @Column(name = "ROLE",updatable = false,insertable = false,nullable = false)
+//    private static final String ROLE = "EMPLOYER";
 
     @OneToOne
     private Company company;
