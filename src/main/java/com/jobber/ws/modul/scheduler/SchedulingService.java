@@ -9,7 +9,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 @Configuration
 @EnableScheduling
 @EnableAsync
-public class SchedulingConfig {
+public abstract class SchedulingService {
 
     @Async
     @Scheduled(fixedRate = 1000)
@@ -18,22 +18,12 @@ public class SchedulingConfig {
                 "Fixed rate task - " + System.currentTimeMillis() / 1000);
     }
 
-
+    @Async
     @Scheduled(fixedDelay = 1000, initialDelay = 1000)
-    public void scheduleFixedRateWithInitialDelayTask() {
+    public abstract void scheduleFixedRateWithInitialDelayTask() ;
 
-        long now = System.currentTimeMillis() / 1000;
-        System.out.println(
-                "Fixed rate task with one second initial delay - " + now);
-    }
-
-
+    @Async
     @Scheduled(cron = "0 15 10 15 * ?")
-    public void scheduleTaskUsingCronExpression() {
-
-        long now = System.currentTimeMillis() / 1000;
-        System.out.println(
-                "schedule tasks using cron jobs - " + now);
-    }
+    public abstract void scheduleTaskUsingCronExpression() ;
 
 }
