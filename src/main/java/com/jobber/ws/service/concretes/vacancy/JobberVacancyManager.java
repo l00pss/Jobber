@@ -1,6 +1,6 @@
-package com.jobber.ws.business.concretes.vacancy;
+package com.jobber.ws.service.concretes.vacancy;
 
-import com.jobber.ws.business.abstracts.jobber.JobberVacancyService;
+import com.jobber.ws.service.abstracts.jobber.JobberVacancyService;
 import com.jobber.ws.dataAccess.vacancy.JobberVacancyRepository;
 import com.jobber.ws.model.entity.company.Vacancy;
 import com.jobber.ws.util.response.Response;

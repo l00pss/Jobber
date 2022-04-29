@@ -1,4 +1,4 @@
-package com.jobber.ws.business.abstracts.common;
+package com.jobber.ws.service.abstracts.common;
 
 import com.jobber.ws.model.entity.company.Vacancy;
 import com.jobber.ws.util.response.DataResponse;

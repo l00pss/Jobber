@@ -1,6 +1,6 @@
-package com.jobber.ws.business.concretes.vacancy;
+package com.jobber.ws.service.concretes.vacancy;
 
-import com.jobber.ws.business.abstracts.admin.AdminVacancyService;
+import com.jobber.ws.service.abstracts.admin.AdminVacancyService;
 import com.jobber.ws.dataAccess.vacancy.PanelVacancyRepository;
 import com.jobber.ws.model.factory.abstracts.AbstractVacancyFactory;
 import com.jobber.ws.model.dto.request.NewVacancyDTO;

@@ -1,9 +1,8 @@
 package com.jobber.ws.config.security.userdetail;
 
-import com.jobber.ws.business.abstracts.user.EmployerService;
+import com.jobber.ws.service.abstracts.user.EmployerService;
 import com.jobber.ws.model.dto.UserContext;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

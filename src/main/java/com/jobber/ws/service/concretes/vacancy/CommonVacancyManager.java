@@ -1,9 +1,9 @@
-package com.jobber.ws.business.concretes.vacancy;
+package com.jobber.ws.service.concretes.vacancy;
 
 import com.jobber.ws.model.factory.abstracts.AbstractVacancyFactory;
 import com.jobber.ws.model.dto.response.vacancy.SimpleVacancyDTO;
 import com.jobber.ws.model.entity.company.Vacancy;
-import com.jobber.ws.business.abstracts.common.CommonVacancyService;
+import com.jobber.ws.service.abstracts.common.CommonVacancyService;
 import com.jobber.ws.dataAccess.vacancy.GeneralVacancyRepository;
 import com.jobber.ws.util.response.DataResponse;
 import com.jobber.ws.util.response.factory.AbstractResponseFactory;

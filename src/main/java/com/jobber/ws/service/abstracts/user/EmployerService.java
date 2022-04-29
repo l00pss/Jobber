@@ -1,4 +1,4 @@
-package com.jobber.ws.business.abstracts.user;
+package com.jobber.ws.service.abstracts.user;
 
 import com.jobber.ws.model.dto.UserContext;
 

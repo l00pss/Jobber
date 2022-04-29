@@ -1,6 +1,6 @@
-package com.jobber.ws.business.concretes.user;
+package com.jobber.ws.service.concretes.user;
 
-import com.jobber.ws.business.abstracts.user.WorkerService;
+import com.jobber.ws.service.abstracts.user.WorkerService;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -1,6 +1,6 @@
 package com.jobber.ws.controller.auth;
 
-import com.jobber.ws.business.AuthenticationService;
+import com.jobber.ws.service.AuthenticationService;
 import com.jobber.ws.model.dto.credential.AuthCredential;
 import com.jobber.ws.model.dto.credential.RegisterCredential;
 import com.jobber.ws.util.response.success.AuthenticationResponse;

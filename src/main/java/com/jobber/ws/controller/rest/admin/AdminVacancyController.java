@@ -8,7 +8,7 @@ import com.jobber.ws.model.dto.response.vacancy.ViewVacancyDTO;
 import com.jobber.ws.util.response.DataResponse;
 import com.jobber.ws.util.response.Response;
 import com.jobber.ws.util.response.SimplePageable;
-import com.jobber.ws.business.abstracts.admin.AdminVacancyService;
+import com.jobber.ws.service.abstracts.admin.AdminVacancyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

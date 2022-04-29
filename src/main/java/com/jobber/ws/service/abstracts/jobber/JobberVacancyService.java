@@ -1,4 +1,4 @@
-package com.jobber.ws.business.abstracts.jobber;
+package com.jobber.ws.service.abstracts.jobber;
 
 import com.jobber.ws.util.response.Response;
 

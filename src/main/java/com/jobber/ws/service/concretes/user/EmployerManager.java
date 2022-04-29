@@ -1,6 +1,6 @@
-package com.jobber.ws.business.concretes.user;
+package com.jobber.ws.service.concretes.user;
 
-import com.jobber.ws.business.abstracts.user.EmployerService;
+import com.jobber.ws.service.abstracts.user.EmployerService;
 import com.jobber.ws.dataAccess.user.admin.EmployerRepository;
 import com.jobber.ws.model.dto.UserContext;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.jobber.ws.business.abstracts.admin;
+package com.jobber.ws.service.abstracts.admin;
 
 import com.jobber.ws.model.dto.request.NewVacancyDTO;
 import com.jobber.ws.model.dto.response.vacancy.SimpleVacancyDTO;

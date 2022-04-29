@@ -1,6 +1,6 @@
-package com.jobber.ws.business;
+package com.jobber.ws.service;
 
-import com.jobber.ws.business.abstracts.user.EmployerService;
+import com.jobber.ws.service.abstracts.user.EmployerService;
 import com.jobber.ws.config.security.jwt.JwtTokenManager;
 import com.jobber.ws.model.dto.UserContext;
 import com.jobber.ws.model.entity.user.User;
@@ -12,7 +12,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 
-import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.nio.charset.StandardCharsets;
