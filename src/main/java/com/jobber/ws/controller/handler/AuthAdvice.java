@@ -5,7 +5,6 @@ import com.jobber.ws.util.exception.ExceptionProvider;
 import com.jobber.ws.util.exception.core.UnknownException;
 import com.jobber.ws.util.response.error.ErrorResponse;
 import com.jobber.ws.util.response.factory.AbstractResponseFactory;
-import com.jobber.ws.util.response.message.MessageProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -20,7 +19,6 @@ import java.io.IOException;
 public class AuthAdvice {
     private final AbstractResponseFactory<ErrorResponse> responseFactory;
     private final ExceptionProvider exceptionProvider;
-    private final MessageProvider messageProvider;
 
     @ExceptionHandler(BadCredentialsException.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)

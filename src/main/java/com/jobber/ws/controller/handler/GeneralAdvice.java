@@ -4,7 +4,6 @@ import com.jobber.ws.util.exception.ExceptionProvider;
 import com.jobber.ws.util.exception.core.UnknownException;
 import com.jobber.ws.util.response.error.ErrorResponse;
 import com.jobber.ws.util.response.factory.AbstractResponseFactory;
-import com.jobber.ws.util.response.message.MessageProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.AccessDeniedException;
@@ -21,7 +20,6 @@ public class GeneralAdvice {
 
     private final AbstractResponseFactory<ErrorResponse> responseFactory;
     private final ExceptionProvider exceptionProvider;
-    private final MessageProvider messageProvider;
 
     @ExceptionHandler(UnknownException.class)
     @ResponseStatus(HttpStatus.BAD_GATEWAY)

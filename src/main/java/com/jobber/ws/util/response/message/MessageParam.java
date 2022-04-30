@@ -1,6 +1,6 @@
 package com.jobber.ws.util.response.message;
 
-public class MessageParam {
+class MessageParam {
     private final String messageFilePath;
     private final String messageCode;
 
