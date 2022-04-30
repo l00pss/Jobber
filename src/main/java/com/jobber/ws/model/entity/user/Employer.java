@@ -1,6 +1,7 @@
 package com.jobber.ws.model.entity.user;
 
 
+import com.jobber.ws.model.dto.credential.RegisterCredential;
 import com.jobber.ws.model.entity.company.Company;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,4 +26,7 @@ public  class Employer extends User  {
     private Company company;
 
 
+    public Employer(RegisterCredential registerCredential) {
+        super(registerCredential);
+    }
 }

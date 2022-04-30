@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface WorkerRepository extends JpaRepository<Worker,Long> {
+public interface AdminWorkerRepository extends JpaRepository<Worker,Long> {
     Worker findByUsername(@Param("username") String username);
     Worker findByUsernameAndVisibility(@Param("username") String username, @Param("visibility") Visibility visibility);
 }

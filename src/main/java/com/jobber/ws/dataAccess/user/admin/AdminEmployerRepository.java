@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface EmployerRepository extends JpaRepository<Employer,Long> {
+public interface AdminEmployerRepository extends JpaRepository<Employer,Long> {
 
     Employer findByUsername(@Param("username") String username);
 
