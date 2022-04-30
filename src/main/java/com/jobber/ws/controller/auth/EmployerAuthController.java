@@ -3,6 +3,7 @@ package com.jobber.ws.controller.auth;
 import com.jobber.ws.service.AuthenticationService;
 import com.jobber.ws.model.dto.credential.AuthCredential;
 import com.jobber.ws.model.dto.credential.RegisterCredential;
+import com.jobber.ws.util.response.Response;
 import com.jobber.ws.util.response.success.AuthenticationResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
@@ -33,7 +34,7 @@ public class EmployerAuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<String> register(@RequestBody RegisterCredential registerCredential){
+    public ResponseEntity<Response> register(@RequestBody RegisterCredential registerCredential){
 
         return null;
     }

@@ -1,6 +1,7 @@
 package com.jobber.ws.model.entity.other;
 
 import com.jobber.ws.model.entity.abstracts.FunctionVisibility;
+import com.jobber.ws.model.entity.user.User;
 import lombok.*;
 import org.springframework.context.annotation.Scope;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -29,7 +30,6 @@ public final class Visibility implements FunctionVisibility {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "MODIFICATION_DATE",nullable = false)
     private Date modificationDate = new Date();
-
 
     @Column(name = "IS_ACTIVE")
     private boolean isActive = true;

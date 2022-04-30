@@ -44,4 +44,7 @@ public final class Password {
         return this.passwordEncoder.matches(raw,this.password);
     }
 
+    public Password(String password){
+        this.password = password.trim();
+    }
 }

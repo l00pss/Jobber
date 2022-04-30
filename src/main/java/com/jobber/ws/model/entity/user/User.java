@@ -1,6 +1,7 @@
 package com.jobber.ws.model.entity.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.jobber.ws.model.dto.credential.RegisterCredential;
 import com.jobber.ws.model.entity.abstracts.FunctionVisibility;
 import com.jobber.ws.model.entity.contact.Contact;
 import com.jobber.ws.model.entity.other.Visibility;
@@ -15,6 +16,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
@@ -28,7 +30,7 @@ import java.util.UUID;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Getter @AllArgsConstructor @NoArgsConstructor @Setter
 @EntityListeners(AuditingEntityListener.class)
-public abstract class User implements FunctionVisibility  , UserDetails {
+public  class User implements FunctionVisibility  , UserDetails {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
@@ -60,7 +62,8 @@ public abstract class User implements FunctionVisibility  , UserDetails {
     @OneToMany(fetch = FetchType.LAZY)
     private Set<SessionKey> sessionKeys ;
 
-    @OneToOne
+    @OneToOne(targetEntity = Visibility.class,
+    cascade = CascadeType.ALL)
     private Visibility visibility = Visibility.ACTIVE;
 
     @Override
@@ -68,7 +71,40 @@ public abstract class User implements FunctionVisibility  , UserDetails {
         return this.visibility.isAppropriate();
     }
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
     public String getPassword() {
         return password.getPassword();
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return false;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return false;
+    }
+
+    public User(RegisterCredential registerCredential){
+        this.profile.setName(registerCredential.getName());
+        this.profile.setLastName(registerCredential.getLastName());
+        this.profile.setEmail(registerCredential.getEmail());
+        this.username = registerCredential.getUserName();
+        this.password = new Password(registerCredential.getPassword());
     }
 }
