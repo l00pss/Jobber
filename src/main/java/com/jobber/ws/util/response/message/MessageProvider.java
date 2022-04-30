@@ -10,7 +10,6 @@ import java.io.IOException;
 @Component
 @Getter
 public class MessageProvider {
-    @SneakyThrows(IOException.class)
     public String getMessage() {
         return  "Test Success Message";
     }
