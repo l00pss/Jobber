@@ -1,6 +1,6 @@
 package com.jobber.ws.controller.rest.admin;
 
-import com.jobber.ws.modul.search.filter.VacancyFilter;
+import com.jobber.ws.config.search.filter.VacancyFilter;
 import com.jobber.ws.model.dto.request.NewVacancyDTO;
 import com.jobber.ws.model.dto.response.user.SimpleWorkerDTO;
 import com.jobber.ws.model.dto.response.vacancy.SimpleVacancyDTO;

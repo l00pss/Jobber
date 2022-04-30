@@ -3,7 +3,7 @@ package com.jobber.ws.controller.rest.common;
 
 import com.jobber.ws.service.abstracts.common.CommonCompanyService;
 import com.jobber.ws.util.response.factory.AbstractResponseFactory;
-import com.jobber.ws.modul.search.filter.CompanyFilter;
+import com.jobber.ws.config.search.filter.CompanyFilter;
 import com.jobber.ws.model.dto.response.company.SimpleCompanyDTO;
 import com.jobber.ws.model.dto.response.company.ViewCompanyDTO;
 import com.jobber.ws.model.dto.response.vacancy.SimpleVacancyDTO;

@@ -1,7 +1,7 @@
 package com.jobber.ws.controller.rest.common;
 
 import com.jobber.ws.service.abstracts.common.CommonVacancyService;
-import com.jobber.ws.modul.search.filter.VacancyFilter;
+import com.jobber.ws.config.search.filter.VacancyFilter;
 import com.jobber.ws.model.dto.response.vacancy.SimpleVacancyDTO;
 import com.jobber.ws.model.dto.response.vacancy.ViewVacancyDTO;
 import com.jobber.ws.util.response.DataResponse;

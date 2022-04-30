@@ -1,7 +1,7 @@
-package com.jobber.ws.modul.search.spec;
+package com.jobber.ws.config.search.spec;
 
 import com.jobber.ws.model.entity.user.Worker;
-import com.jobber.ws.modul.search.criteria.WorkerSearchCriteria;
+import com.jobber.ws.config.search.criteria.WorkerSearchCriteria;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.domain.Specification;
 
