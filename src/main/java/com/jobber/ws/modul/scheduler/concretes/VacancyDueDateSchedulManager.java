@@ -7,6 +7,8 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
+import java.time.LocalDate;
+
 @Configuration
 @EnableScheduling
 @EnableAsync
@@ -16,9 +18,7 @@ public class VacancyDueDateSchedulManager implements SchedulService {
     @Scheduled(cron = "@daily")
     @Override
     public void execute() {
-        System.out.println(
-                "midnight - " + System.currentTimeMillis() / 1000);
-
+        System.out.println("Daily - " + LocalDate.now());
     }
 
 }

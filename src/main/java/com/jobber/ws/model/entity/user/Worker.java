@@ -26,8 +26,8 @@ import java.util.Set;
 @NoArgsConstructor
 public final class Worker extends User implements Comparable<Worker> {
 
-//    @Column(name = "ROLE",updatable = false,insertable = false,nullable = false)
-//    private static final String ROLE = "WORKER";
+    @Column(name = "ROLE",updatable = false,insertable = false,nullable = false)
+    private static final String ROLE = Role.ROLE_WORKER.get();
 
     @Column(name = "IS_APPROVED",nullable = false)
     private boolean isApproved = false;
