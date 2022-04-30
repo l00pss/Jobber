@@ -29,7 +29,7 @@ public class EmployerAuthManager implements AuthService {
     @Override
     public Response register(final RegisterCredential registerCredential) {
         employerRepository.save(new Employer(registerCredential));
-        return responseFactory.factorySuccessResult(ResponseMessage.CLIENT_ERROR.get("001"));
+        return responseFactory.factorySuccessResult(ResponseMessage.SUCCESSFUL.get("200_100002"));
     }
 
     @Override

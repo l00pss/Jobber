@@ -1,0 +1,51 @@
+[
+  {
+    "__code__" : "200_",
+    "__message__": "Burada təsdiq mesajları yer almışdır. 200 prefiksi istifadə edilməlidir . Xüsusi ifadələrə müraciət üçün $ istifadə edilir"
+  },
+  {
+    "code" : "200_100001",
+    "message": "Qeydiyyat uğurla həyata keçdi. İndi yeni iş fürsətlərinə açıla bilərsiz."
+  },
+  {
+    "code" : "200_100002",
+    "message": "Qeydiyyat uğurla həyata keçdi. İndi komandanızı böyütmənin əsl vaxtıdır."
+  },
+  {
+    "code" : "200_100003",
+    "message": "Dəyişikliklər qeydə alındı"
+  },
+  {
+    "code" : "200_100004",
+    "message": "Əməliyyat uğurla həyata keçdi."
+  },
+  {
+    "code" : "200_100005",
+    "message": "İstəyiniz təsdiqləndi."
+  },
+  {
+    "code" : "200_100006",
+    "message": "Müraciətiniz uğurla qeydə alındı"
+  },
+  {
+    "code" : "200_100007",
+    "message": "Vakansiya silindi"
+  },
+  {
+    "code" : "200_100008",
+    "message": "Müraciətiniz uğurla qeydə alındı"
+  },
+  {
+    "code" : "200_100009",
+    "message": "Sizin üçün bir neçə  uyğun elan tapıldı"
+  },
+  {
+    "code" : "200_100010",
+    "message": "Sizin üçün bir neçə  uyğun elan tapıldı"
+  },
+  {
+    "code" : "200_100011",
+    "message": "$ adlı istifadəçi üçün təklif uğurla icra edildi"
+  }
+
+]
