@@ -1,11 +1,10 @@
 package com.jobber.ws.model.entity.contact;
 
-import com.jobber.ws.model.entity.user.Profile;
+import com.jobber.ws.model.entity.user.UserProfile;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "CONTACT")
@@ -17,7 +16,7 @@ public class Contact {
 
     @ManyToOne
     @JoinColumn(name="profile_id", nullable=false)
-    private Profile profile;
+    private UserProfile userProfile;
 
     @OneToMany(mappedBy = "contact")
     List<PhoneNumber> phoneNumbers;

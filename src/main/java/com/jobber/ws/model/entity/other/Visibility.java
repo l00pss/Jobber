@@ -15,7 +15,7 @@ import java.util.Date;
 @Builder
 @NoArgsConstructor @AllArgsConstructor
 @Scope(scopeName = "prototype")
-public final class Visibility implements FunctionVisibility {
+public class Visibility implements FunctionVisibility {
     @SequenceGenerator(name = "COM_GEN_SEQ",
             sequenceName = "COM_SEQ",
             allocationSize = 1
@@ -52,7 +52,7 @@ public final class Visibility implements FunctionVisibility {
     }
 
     @Transient
-    public static final Visibility ACTIVE  =null; //= Visibility.builder().build();
+    public static final Visibility ACTIVE  = Visibility.builder().build();
 
     @Transient
     public static final Visibility INACTIVE

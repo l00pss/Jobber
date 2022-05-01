@@ -19,8 +19,9 @@ import java.util.Collection;
 @NoArgsConstructor
 public  class Employer extends User  {
 
-    @Column(name = "ROLE",updatable = false,insertable = false,nullable = false)
-    private static final String ROLE = Role.ROLE_EMPLOYER.get();
+    @Column(name = "ROLE",updatable = false,length = 12)
+    @Enumerated(EnumType.ORDINAL)
+    private  Role role = Role.EMPLOYER;
 
     @OneToOne
     private Company company;

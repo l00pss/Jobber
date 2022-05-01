@@ -3,7 +3,6 @@ package com.jobber.ws.model.entity.user;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jobber.ws.model.dto.credential.RegisterCredential;
 import com.jobber.ws.model.entity.abstracts.FunctionVisibility;
-import com.jobber.ws.model.entity.contact.Contact;
 import com.jobber.ws.model.entity.other.Visibility;
 import com.jobber.ws.model.sys.SessionKey;
 import lombok.AllArgsConstructor;
@@ -11,19 +10,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.parameters.P;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import javax.validation.constraints.Pattern;
 import java.util.Collection;
-import java.util.Date;
 import java.util.Set;
 import java.util.UUID;
 
@@ -52,7 +46,7 @@ public class User implements FunctionVisibility  , UserDetails {
     @OneToOne(fetch = FetchType.LAZY,
             cascade =  CascadeType.ALL,
             mappedBy = "user")
-    private Profile profile;
+    private UserProfile userProfile;
 
     @Column(name = "USER_NAME",unique = true)
     private String username;
@@ -66,7 +60,10 @@ public class User implements FunctionVisibility  , UserDetails {
 
     @OneToOne(targetEntity = Visibility.class,
     cascade = CascadeType.ALL)
-    private Visibility visibility = Visibility.ACTIVE;
+    private Visibility visibility;
+
+    @OneToOne
+    private UserSettings userSettings;
 
     @Override
     public boolean isAppropriate(){
@@ -103,7 +100,8 @@ public class User implements FunctionVisibility  , UserDetails {
     }
 
     public User(RegisterCredential registerCredential){
-        this.profile = new Profile(registerCredential);
-        this.profile.setUser(this);
+        this.userProfile = new UserProfile(registerCredential);
+        this.userProfile.setUser(this);
+        this.visibility = Visibility.ACTIVE;
     }
 }

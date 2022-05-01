@@ -11,11 +11,11 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "PROFILE")
+@Table(name = "USE_PROFILE")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Profile {
+public class UserProfile {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -41,20 +41,24 @@ public class Profile {
     @Temporal(TemporalType.DATE)
     private Date birthDate;
 
-    @OneToMany(mappedBy = "profile")
+    @OneToMany(mappedBy = "profile",cascade = CascadeType.ALL)
     private List<Contact> contacts;
 
-    @Column(name = "PROFILE_IMAGE")@Lob
+    @Column(name = "PROFILE_IMAGE")
+    @Lob
     private String profileImage;
 
-    @Column(name = "COVER_IMAGE")@Lob
+    @Column(name = "COVER_IMAGE")
+    @Lob
     private String coverImage;
 
+    @OneToOne
+    private UserSettings settings;
 
     @Column(name = "IS_PREMIUM")
     private Boolean isPremiumAccount = false;
 
-    public Profile(RegisterCredential registerCredential){
+    public UserProfile(RegisterCredential registerCredential){
         super();
         this.name = registerCredential.getName();
         this.lastName = registerCredential.getLastName();
