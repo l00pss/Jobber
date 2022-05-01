@@ -1,6 +1,7 @@
 package com.jobber.ws.util.response.message;
 
 import com.google.gson.stream.JsonReader;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
@@ -10,24 +11,24 @@ import java.util.*;
 @Component
 class MessageProvider {
 
-    private static final Map<String,String> clientErrorMessages = new HashMap<>();
-    private static final Map<String,String> successMessages = new HashMap<>();
-    private static final Map<String,String> informationMessages = new HashMap<>();
-    private static final Map<String,String> redirectionMessages = new HashMap<>();
-    private static final Map<String,String> serverErrorMessages = new HashMap<>();
+    private static final Map<String,String> INFORMATION_MESSAGES = new HashMap<>();
+    private static final Map<String,String> SUCCESS_MESSAGES = new HashMap<>();
+    private static final Map<String,String> REDIRECTION_MESSAGES = new HashMap<>();
+    private static final Map<String,String> CLIENT_ERROR_MESSAGES = new HashMap<>();
+    private static final Map<String,String> SERVER_ERROR_MESSAGES = new HashMap<>();
 
-    private static final Map<String,Map<String,String>> listMap = new HashMap<>();
+    private static final Map<String,Map<String,String>> MESSAGES_MAP_LIST = new HashMap<>();
 
     static {
-        listMap.putIfAbsent(ResponseMessage.CLIENT_ERROR.getPath(),clientErrorMessages);
-        listMap.putIfAbsent(ResponseMessage.INFORMATION.getPath(), informationMessages);
-        listMap.putIfAbsent(ResponseMessage.SUCCESSFUL.getPath(), successMessages);
-        listMap.putIfAbsent(ResponseMessage.REDIRECTION.getPath(), redirectionMessages);
-        listMap.putIfAbsent(ResponseMessage.SERVER_ERROR.getPath(), serverErrorMessages);
+        MESSAGES_MAP_LIST.putIfAbsent(ResponseMessage.CLIENT_ERROR.getPath(),MessageProvider.CLIENT_ERROR_MESSAGES);
+        MESSAGES_MAP_LIST.putIfAbsent(ResponseMessage.INFORMATION.getPath(), MessageProvider.INFORMATION_MESSAGES);
+        MESSAGES_MAP_LIST.putIfAbsent(ResponseMessage.SUCCESSFUL.getPath(), MessageProvider.SUCCESS_MESSAGES);
+        MESSAGES_MAP_LIST.putIfAbsent(ResponseMessage.REDIRECTION.getPath(), MessageProvider.REDIRECTION_MESSAGES);
+        MESSAGES_MAP_LIST.putIfAbsent(ResponseMessage.SERVER_ERROR.getPath(), MessageProvider.SERVER_ERROR_MESSAGES);
     }
 
     static {
-        var keys = listMap.entrySet();
+        var keys = MESSAGES_MAP_LIST.entrySet();
         for (Map.Entry<String,Map<String,String>> entry : keys){
             InputStream inputstream = null;
             try {
@@ -72,20 +73,29 @@ class MessageProvider {
     }
 
 
-    public String getMessage(MessageParam param) {
-        String contextMessage = "";
+    public String getMessage(@NotNull MessageParam param) {
+        String contextMessage = "Ops :( Message not found!";
         switch (param.getType()){
+            case "100":
+                contextMessage = INFORMATION_MESSAGES.get(param.toString());
+                break;
             case "200":
-                contextMessage = successMessages.get(param.getType().concat("_").concat(param.getMessageCode()));
+                contextMessage = SUCCESS_MESSAGES.get(param.toString());
                 break;
             case "300":
-
+                contextMessage = REDIRECTION_MESSAGES.get(param.toString());
+                break;
+            case "400":
+                contextMessage = CLIENT_ERROR_MESSAGES.get(param.toString());
+                break;
+            case "500":
+                contextMessage = SERVER_ERROR_MESSAGES.get(param.toString());
                 break;
         }
         return  contextMessage;
     }
 
     public String getMessage(MessageParam param,final Map<String,String> expression) {
-        return  "Test Success Message";
+        return  "Ops :( Message not found!";
     }
 }

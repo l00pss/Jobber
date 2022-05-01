@@ -1,3 +1,10 @@
 [
-
+  {
+    "__code__": "500_000000",
+    "__message__": "Sistem xətaları ilə bağlı mesajlar burada qeyd edilir"
+  },
+  {
+    "code": "500_000001",
+    "message": "Düzgün qeyd olunmayan cavab mesajı qeydə alındı. Bu problemin ən qısa zamanda həll edilməsi üçün əlimizdən gələni edirik"
+  }
 ]

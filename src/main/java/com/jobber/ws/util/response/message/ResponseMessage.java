@@ -18,7 +18,7 @@ public enum ResponseMessage {
     };
 
     public String getPath() {
-        return MAIN_PATH + path;
+        return MAIN_PATH.concat(path);
     }
 
     final String path;
