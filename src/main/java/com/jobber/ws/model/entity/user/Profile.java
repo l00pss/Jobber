@@ -1,5 +1,6 @@
 package com.jobber.ws.model.entity.user;
 
+import com.jobber.ws.model.dto.credential.RegisterCredential;
 import com.jobber.ws.model.entity.contact.Contact;
 import lombok.*;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -12,10 +13,16 @@ import java.util.Set;
 @Entity
 @Table(name = "PROFILE")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Profile {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
     @LastModifiedDate
     @Column(name = "MODIFICATION_DATE")
@@ -46,4 +53,11 @@ public class Profile {
 
     @Column(name = "IS_PREMIUM")
     private Boolean isPremiumAccount = false;
+
+    public Profile(RegisterCredential registerCredential){
+        super();
+        this.name = registerCredential.getName();
+        this.lastName = registerCredential.getLastName();
+        this.email  = registerCredential.getEmail();
+    }
 }

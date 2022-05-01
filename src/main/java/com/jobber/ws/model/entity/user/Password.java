@@ -28,6 +28,9 @@ public final class Password {
     @Column(name = "id", updatable = false, nullable = false)
     private UUID id;
 
+    @OneToOne
+    private User user;
+
     @LastModifiedDate
     @Column(name = "MODIFICATION_DATE")
     private Date modificationDate;

@@ -38,7 +38,6 @@ public class User implements FunctionVisibility  , UserDetails {
             name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator"
     )
-    @Column(name = "id", updatable = false, nullable = false)
     private UUID id;
 
     //TODO Bu bir obyekt halina salinmalidir
@@ -50,13 +49,15 @@ public class User implements FunctionVisibility  , UserDetails {
     @LastModifiedDate
     private long modifiedDate;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY,
+            cascade =  CascadeType.ALL,
+            mappedBy = "user")
     private Profile profile;
 
     @Column(name = "USER_NAME",unique = true)
     private String username;
 
-    @OneToOne
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Password password;
 
     @JsonIgnore
@@ -102,10 +103,7 @@ public class User implements FunctionVisibility  , UserDetails {
     }
 
     public User(RegisterCredential registerCredential){
-        this.profile.setName(registerCredential.getName());
-        this.profile.setLastName(registerCredential.getLastName());
-        this.profile.setEmail(registerCredential.getEmail());
-        this.username = registerCredential.getUserName();
-        this.password.setPassword(registerCredential.getPassword());
+        this.profile = new Profile(registerCredential);
+        this.profile.setUser(this);
     }
 }
