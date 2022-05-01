@@ -21,6 +21,10 @@ public class SessionKey {
     @GeneratedValue(generator = "COM_GEN_SEQ")
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    private User user;
+
     @CreatedDate
     @Temporal(TemporalType.TIMESTAMP)
     private Date createDate;

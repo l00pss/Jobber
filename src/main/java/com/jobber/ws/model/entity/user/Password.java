@@ -1,10 +1,7 @@
 package com.jobber.ws.model.entity.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -16,11 +13,11 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "PASSWORD_PROVIDER")
-@RequiredArgsConstructor @Getter
+@RequiredArgsConstructor @Data
 public final class Password {
 
-    @Transient
-    private PasswordEncoder passwordEncoder;
+//    @Transient
+//    private PasswordEncoder passwordEncoder;
 
     @Id
     @GeneratedValue(generator = "UUID")
@@ -35,13 +32,13 @@ public final class Password {
     @Column(name = "MODIFICATION_DATE")
     private Date modificationDate;
 
-    @Column(name = "PASSWORD")
+    @Column(name = "PASSWORD",nullable = false)
     @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$")
     @JsonIgnore
     private String password;
 
     public boolean matches(final String raw){
-        return this.passwordEncoder.matches(raw,this.password);
+        return false;//this.passwordEncoder.matches(raw,this.password);
     }
 
     public Password(String password){

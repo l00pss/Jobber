@@ -15,10 +15,10 @@ import javax.persistence.*;
 @AllArgsConstructor
 public class Email {
     @Id
-    @Column(name = "ID", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne(targetEntity = Contact.class,fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name="contact_id", nullable=false)
     private Contact contact;
 

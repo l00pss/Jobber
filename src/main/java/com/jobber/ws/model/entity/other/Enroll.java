@@ -20,6 +20,7 @@ import java.util.Objects;
 @AllArgsConstructor
 public class Enroll {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Temporal(TemporalType.TIMESTAMP)

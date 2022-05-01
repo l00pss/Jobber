@@ -17,6 +17,7 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.parameters.P;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
@@ -30,7 +31,7 @@ import java.util.UUID;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Getter @AllArgsConstructor @NoArgsConstructor @Setter
 @EntityListeners(AuditingEntityListener.class)
-public  class User implements FunctionVisibility  , UserDetails {
+public class User implements FunctionVisibility  , UserDetails {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
@@ -59,7 +60,7 @@ public  class User implements FunctionVisibility  , UserDetails {
     private Password password;
 
     @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user")
     private Set<SessionKey> sessionKeys ;
 
     @OneToOne(targetEntity = Visibility.class,
@@ -105,6 +106,6 @@ public  class User implements FunctionVisibility  , UserDetails {
         this.profile.setLastName(registerCredential.getLastName());
         this.profile.setEmail(registerCredential.getEmail());
         this.username = registerCredential.getUserName();
-        this.password = new Password(registerCredential.getPassword());
+        this.password.setPassword(registerCredential.getPassword());
     }
 }

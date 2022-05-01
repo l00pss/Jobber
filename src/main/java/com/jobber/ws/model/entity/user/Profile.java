@@ -1,24 +1,20 @@
 package com.jobber.ws.model.entity.user;
 
 import com.jobber.ws.model.entity.contact.Contact;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Entity
 @Table(name = "PROFILE")
-@Getter
-@AllArgsConstructor
-@NoArgsConstructor
-@Setter
+@Data
 public class Profile {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @LastModifiedDate
@@ -38,8 +34,8 @@ public class Profile {
     @Temporal(TemporalType.DATE)
     private Date birthDate;
 
-    @OneToMany(targetEntity = Contact.class)
-    private Set<Contact> contacts;
+    @OneToMany(mappedBy = "profile")
+    private List<Contact> contacts;
 
     @Column(name = "PROFILE_IMAGE")@Lob
     private String profileImage;

@@ -9,7 +9,6 @@ public class EmployerAuthenticationProvider extends DaoAuthenticationProvider {
 
     @Override
     protected Authentication createSuccessAuthentication(Object principal, Authentication authentication, UserDetails user) {
-
         return new UsernamePasswordAuthenticationToken(principal, user.getPassword(), user.getAuthorities());
     }
 }

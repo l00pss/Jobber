@@ -71,7 +71,7 @@ public class Vacancy implements FunctionVisibility {
     @OneToMany(mappedBy = "vacancy")
     private Set<Mark> marks;
 
-    @OneToMany
+    @OneToMany(mappedBy = "vacancy")
     private List<Views> views;
 
     @OneToOne

@@ -41,7 +41,7 @@ public final class Worker extends User implements Comparable<Worker> {
     @OneToMany(mappedBy = "worker")
     private Set<Mark> marks;
 
-    @OneToMany
+    @OneToMany(mappedBy = "worker")
     private List<Views> views;
 
     @ManyToMany

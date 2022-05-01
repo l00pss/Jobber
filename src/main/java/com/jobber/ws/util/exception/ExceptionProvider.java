@@ -22,7 +22,7 @@ public class ExceptionProvider {
                 .factory(exception.getMessage(),
                         exception.getStackTrace(),
                         exception.getLocalizedMessage());
-        repository.save(modelException);
+//        repository.save(modelException);
     }
 
     /**

@@ -23,19 +23,19 @@ public class Curriculum {
     @Column(name = "ABOUT") @Lob
     private String about;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "curriculum")
+    @OneToMany( mappedBy = "curriculum")
     private Set<Skill> skills;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "curriculum")
+    @OneToMany( mappedBy = "curriculum")
     private List<Experience> experienceList;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "curriculum")
+    @OneToMany( mappedBy = "curriculum")
     private List<Education> educations;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "curriculum")
+    @OneToMany( mappedBy = "curriculum")
     private List<Certificate> certificates;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "curriculum")
+    @OneToMany( mappedBy = "curriculum")
     private Set<Hobby> hobbies;
 
 }

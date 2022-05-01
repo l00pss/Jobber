@@ -1,42 +1,30 @@
 package com.jobber.ws.model.entity.contact;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.jobber.ws.model.entity.user.Profile;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
 @Table(name = "CONTACT")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class Contact {
     @Id
-    @Column(name = "ID", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER,
-            mappedBy = "contact"
-    )
-    Set<PhoneNumber> phoneNumbers;
+    @ManyToOne
+    @JoinColumn(name="profile_id", nullable=false)
+    private Profile profile;
 
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER,
-            mappedBy = "contact"
-    )
-    Set<Email> emails;
+    @OneToMany(mappedBy = "contact")
+    List<PhoneNumber> phoneNumbers;
 
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER,
-            mappedBy = "contact"
-    )
-    Set<Address> addresses;
+    @OneToMany(mappedBy = "contact")
+    List<Email> emails;
+
+    @OneToMany(mappedBy = "contact")
+    List<Address> addresses;
 }

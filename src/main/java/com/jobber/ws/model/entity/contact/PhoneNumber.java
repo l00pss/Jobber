@@ -14,10 +14,10 @@ import javax.validation.constraints.Size;
 @AllArgsConstructor
 public class PhoneNumber {
     @Id
-    @Column(name = "ID", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne(targetEntity = Contact.class,fetch = FetchType.EAGER)
+    @ManyToOne()
     @JoinColumn(name="contact_id", nullable=false)
     private Contact contact;
 

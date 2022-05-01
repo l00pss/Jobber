@@ -17,6 +17,7 @@ import java.util.Date;
 @Getter
 public class Login {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Temporal(TemporalType.TIMESTAMP)

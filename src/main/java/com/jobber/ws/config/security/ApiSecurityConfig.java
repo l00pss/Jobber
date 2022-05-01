@@ -35,7 +35,6 @@ public class ApiSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-
         http = http.cors().and().csrf().disable();
 
         http = http
@@ -49,12 +48,9 @@ public class ApiSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and();
 
         http.authorizeRequests()
-                .antMatchers("/v2/api-docs", "/api-docs",
+                .antMatchers("/v2/api-docs", "/api-docs","/api/1.0/auth/employer/**",
                         "/configuration/ui", "/configuration/security",
                         "/swagger-ui/**", "/swagger-resources/**", "/swagger-ui.html", "/webjars/**").permitAll()
-                .antMatchers(HttpMethod.POST, "/rest/api/v1/login").permitAll()
-                .antMatchers(HttpMethod.POST, "/rest/api/v1/user").permitAll()
-                .anyRequest().authenticated()
                 .and()
                 .addFilter(new JwtAuthorizationFilter(authenticationManager(), tokenManager));
     }

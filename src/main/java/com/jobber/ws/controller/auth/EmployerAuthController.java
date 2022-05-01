@@ -3,41 +3,45 @@ package com.jobber.ws.controller.auth;
 import com.jobber.ws.service.AuthenticationService;
 import com.jobber.ws.model.dto.credential.AuthCredential;
 import com.jobber.ws.model.dto.credential.RegisterCredential;
+import com.jobber.ws.service.abstracts.auth.AuthService;
+import com.jobber.ws.service.qualifier.EmployerAuthManagerQualifier;
+import com.jobber.ws.util.response.DataResponse;
 import com.jobber.ws.util.response.Response;
 import com.jobber.ws.util.response.success.AuthenticationResponse;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/1.0/auth/employer")
-@RequiredArgsConstructor
 public class EmployerAuthController {
 
+    private final AuthService authService;
     private final AuthenticationService authenticationService;
+
+    @Autowired
+    public EmployerAuthController(@EmployerAuthManagerQualifier  AuthService authService,
+                                  AuthenticationService authenticationService)
+    {
+        this.authService = authService;
+        this.authenticationService = authenticationService;
+    }
 
     @PostMapping("/login")
     public ResponseEntity<AuthenticationResponse> login(@RequestHeader(HttpHeaders.AUTHORIZATION) String authorization) {
-        try {
-
-            AuthenticationResponse response = authenticationService.authenticate(authorization);
-            return ResponseEntity.ok()
-                    .header(HttpHeaders.AUTHORIZATION, response.getToken())
-                    .body(response);
-
-        } catch (BadCredentialsException ex) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-        }
+        DataResponse<AuthenticationResponse> response =  this.authService.login(authorization);
+        return ResponseEntity.ok()
+                    .header(HttpHeaders.AUTHORIZATION, response.getData().getToken())
+                    .body(response.getData());
     }
 
     @PostMapping("/register")
     public ResponseEntity<Response> register(@RequestBody RegisterCredential registerCredential){
-
-        return null;
+        return new ResponseEntity<>(authService.register(registerCredential), HttpStatus.CREATED);
     }
+
 
     @PostMapping("/logout")
     public ResponseEntity<String> logout(@RequestBody AuthCredential authCredential){
@@ -50,4 +54,10 @@ public class EmployerAuthController {
 
         return null;
     }
+
+    @GetMapping("/forgot/support")
+    public ResponseEntity<String> support(){
+        return null;
+    }
 }
+

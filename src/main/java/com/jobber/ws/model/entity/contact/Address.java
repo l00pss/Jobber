@@ -1,24 +1,18 @@
 package com.jobber.ws.model.entity.contact;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "ADDRESSES")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class Address {
     @Id
-    @Column(name = "ID", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne(targetEntity = Contact.class,fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name="contact_id", nullable=false)
     private Contact contact;
 

@@ -18,6 +18,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 public class Mark {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @ManyToOne
