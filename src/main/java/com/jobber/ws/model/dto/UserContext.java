@@ -23,9 +23,9 @@ public class UserContext implements Serializable {
 
     public UserContext(JUser JUser){
         this.id = JUser.getId().toString();
-        this.name = JUser.getUserProfile().getFirstname();
-        this.surname = JUser.getUserProfile().getLastName();
-        this.email = JUser.getUserProfile().getEmail();
+        this.name = JUser.getJUserProfile().getFirstname();
+        this.surname = JUser.getJUserProfile().getLastName();
+        this.email = JUser.getJUserProfile().getEmail();
         this.password = JUser.getPassword();
     }
 }

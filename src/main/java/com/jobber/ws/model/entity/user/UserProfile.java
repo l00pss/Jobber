@@ -3,6 +3,7 @@ package com.jobber.ws.model.entity.user;
 import com.jobber.ws.model.dto.credential.RegisterCredential;
 import com.jobber.ws.model.entity.contact.Contact;
 import lombok.*;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
@@ -19,8 +20,7 @@ public class UserProfile {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id", nullable = false)
+    @OneToOne
     private JUser jUser;
 
     @LastModifiedDate

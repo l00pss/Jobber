@@ -11,6 +11,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.context.annotation.DependsOn;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.security.core.GrantedAuthority;
@@ -43,7 +45,7 @@ public class JUser implements FunctionVisibility  , UserDetails {
     @OneToOne(fetch = FetchType.LAZY,
             cascade =  CascadeType.ALL,
             mappedBy = "jUser")
-    private UserProfile userProfile;
+    private UserProfile jUserProfile;
 
     @Column(name = "JUSER_NAME",unique = true)
     private String username;
@@ -98,8 +100,8 @@ public class JUser implements FunctionVisibility  , UserDetails {
 
 
     public JUser(RegisterCredential registerCredential){
-        this.userProfile = new UserProfile(registerCredential);
-        this.userProfile.setJUser(this);
+        this.jUserProfile = new UserProfile(registerCredential);
+        this.jUserProfile.setJUser(this);
         this.visibility = Visibility.ACTIVE;
     }
 }
