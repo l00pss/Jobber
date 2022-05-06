@@ -8,10 +8,9 @@ import org.springframework.data.annotation.LastModifiedDate;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 @Entity
-@Table(name = "USE_PROFILE")
+@Table(name = "JUSER_PROFILE")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,14 +21,13 @@ public class UserProfile {
 
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private JUser jUser;
 
     @LastModifiedDate
-    @Column(name = "MODIFICATION_DATE")
-    private long modifiedDate;
+    private Date modifiedDate;
 
-    @Column(name = "NAME",nullable = false)
-    private String name;
+    @Column(name = "FIRST_NAME",nullable = false)
+    private String firstname;
 
     @Column(name = "LAST_NAME",nullable = false)
     private String lastName;
@@ -60,7 +58,7 @@ public class UserProfile {
 
     public UserProfile(RegisterCredential registerCredential){
         super();
-        this.name = registerCredential.getName();
+        this.firstname = registerCredential.getName();
         this.lastName = registerCredential.getLastName();
         this.email  = registerCredential.getEmail();
     }

@@ -3,6 +3,7 @@ package com.jobber.ws.model.entity.company;
 import com.jobber.ws.model.entity.abstracts.FunctionVisibility;
 import com.jobber.ws.model.entity.contact.Contact;
 import com.jobber.ws.model.entity.other.Visibility;
+import com.jobber.ws.model.entity.user.Employer;
 import com.jobber.ws.model.entity.user.Worker;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,6 +31,9 @@ public final class Company implements FunctionVisibility {
     )
     @Column(name = "id", updatable = false, nullable = false)
     private UUID id;
+
+    @OneToOne
+    private Employer employer;
 
     @Column(name = "IS_APPROVED",nullable = false)
     private boolean isApproved = false;

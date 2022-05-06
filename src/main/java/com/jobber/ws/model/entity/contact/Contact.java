@@ -16,7 +16,7 @@ public class Contact {
 
     @ManyToOne
     @JoinColumn(name="profile_id", nullable=false)
-    private UserProfile userProfile;
+    private UserProfile profile;
 
     @OneToMany(mappedBy = "contact")
     List<PhoneNumber> phoneNumbers;

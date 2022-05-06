@@ -1,6 +1,7 @@
 package com.jobber.ws.model.entity.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.jobber.ws.config.audit.UserAuditor;
 import com.jobber.ws.model.dto.credential.RegisterCredential;
 import com.jobber.ws.model.entity.abstracts.FunctionVisibility;
 import com.jobber.ws.model.entity.other.Visibility;
@@ -12,7 +13,6 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -24,8 +24,8 @@ import java.util.UUID;
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Getter @AllArgsConstructor @NoArgsConstructor @Setter
-@EntityListeners(AuditingEntityListener.class)
-public class User implements FunctionVisibility  , UserDetails {
+@EntityListeners(UserAuditor.class)
+public class JUser implements FunctionVisibility  , UserDetails {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
@@ -34,28 +34,25 @@ public class User implements FunctionVisibility  , UserDetails {
     )
     private UUID id;
 
-    //TODO Bu bir obyekt halina salinmalidir
-    @Column(name = "created_date", nullable = false, updatable = false)
     @CreatedDate
     private long createdDate;
 
-    @Column(name = "modified_date")
     @LastModifiedDate
     private long modifiedDate;
 
     @OneToOne(fetch = FetchType.LAZY,
             cascade =  CascadeType.ALL,
-            mappedBy = "user")
+            mappedBy = "jUser")
     private UserProfile userProfile;
 
-    @Column(name = "USER_NAME",unique = true)
+    @Column(name = "JUSER_NAME",unique = true)
     private String username;
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(mappedBy = "jUser", cascade = CascadeType.ALL)
     private Password password;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "jUser")
     private Set<SessionKey> sessionKeys ;
 
     @OneToOne(targetEntity = Visibility.class,
@@ -99,9 +96,10 @@ public class User implements FunctionVisibility  , UserDetails {
         return false;
     }
 
-    public User(RegisterCredential registerCredential){
+
+    public JUser(RegisterCredential registerCredential){
         this.userProfile = new UserProfile(registerCredential);
-        this.userProfile.setUser(this);
+        this.userProfile.setJUser(this);
         this.visibility = Visibility.ACTIVE;
     }
 }

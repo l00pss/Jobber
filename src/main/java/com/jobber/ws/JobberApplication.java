@@ -15,7 +15,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 @EnableJpaRepositories("com.jobber.ws.dataAccess")
 @EnableTransactionManagement
-@EnableJpaAuditing @EnableScheduling
 @PropertySource("classpath:application-${spring.profiles.active:default}.properties")
 public class JobberApplication {
 

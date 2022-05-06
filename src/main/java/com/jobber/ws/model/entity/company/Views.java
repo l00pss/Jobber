@@ -2,10 +2,8 @@ package com.jobber.ws.model.entity.company;
 
 
 
-import com.jobber.ws.model.entity.user.User;
 import com.jobber.ws.model.entity.user.Worker;
 import lombok.*;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;

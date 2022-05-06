@@ -16,7 +16,7 @@ public class UserSettings {
     private Long id;
 
     @OneToOne
-    private User owner;
+    private JUser owner;
 
     @Enumerated(EnumType.ORDINAL)
     private Language language = Language.AZ;

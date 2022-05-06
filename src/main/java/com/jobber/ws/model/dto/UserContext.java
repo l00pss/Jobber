@@ -1,6 +1,6 @@
 package com.jobber.ws.model.dto;
 
-import com.jobber.ws.model.entity.user.User;
+import com.jobber.ws.model.entity.user.JUser;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,11 +21,11 @@ public class UserContext implements Serializable {
     private String password;
     private String type;
 
-    public UserContext(User user){
-        this.id = user.getId().toString();
-        this.name = user.getUserProfile().getName();
-        this.surname = user.getUserProfile().getLastName();
-        this.email = user.getUserProfile().getEmail();
-        this.password = user.getPassword();
+    public UserContext(JUser JUser){
+        this.id = JUser.getId().toString();
+        this.name = JUser.getUserProfile().getFirstname();
+        this.surname = JUser.getUserProfile().getLastName();
+        this.email = JUser.getUserProfile().getEmail();
+        this.password = JUser.getPassword();
     }
 }

@@ -1,6 +1,6 @@
 package com.jobber.ws.model.sys;
 
-import com.jobber.ws.model.entity.user.User;
+import com.jobber.ws.model.entity.user.JUser;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
@@ -23,7 +23,7 @@ public class SessionKey {
 
     @ManyToOne
     @JoinColumn(name="user_id")
-    private User user;
+    private JUser jUser;
 
     @CreatedDate
     @Temporal(TemporalType.TIMESTAMP)

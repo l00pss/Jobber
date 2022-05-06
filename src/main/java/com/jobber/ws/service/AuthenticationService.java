@@ -3,7 +3,7 @@ package com.jobber.ws.service;
 import com.jobber.ws.service.abstracts.user.EmployerService;
 import com.jobber.ws.config.security.jwt.JwtTokenManager;
 import com.jobber.ws.model.dto.UserContext;
-import com.jobber.ws.model.entity.user.User;
+import com.jobber.ws.model.entity.user.JUser;
 import com.jobber.ws.util.response.success.AuthenticationResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -42,13 +42,13 @@ public class AuthenticationService {
                         new UsernamePasswordAuthenticationToken(email, password)
                 );
 
-        User user = (User) authenticate.getPrincipal();
-        if(user == null) {
+        JUser JUser = (JUser) authenticate.getPrincipal();
+        if(JUser == null) {
             throw new RuntimeException("USER NOT FOUND");
         }
 
         UserContext userContext = userService.load(email);
-        String jwtToken = tokenManager.generateToken(user, userContext.getId());
+        String jwtToken = tokenManager.generateToken(JUser, userContext.getId());
         return new AuthenticationResponse(userContext.getId(), jwtToken);
     }
 

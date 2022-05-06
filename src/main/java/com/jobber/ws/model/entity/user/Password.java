@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
@@ -29,7 +28,7 @@ public final class Password {
     private UUID id;
 
     @OneToOne
-    private User user;
+    private JUser jUser;
 
     @LastModifiedDate
     @Column(name = "MODIFICATION_DATE")
