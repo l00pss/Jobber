@@ -49,8 +49,9 @@ dependencies {
     testImplementation 'io.projectreactor:reactor-test:3.4.17'
     testImplementation 'org.springframework.security:spring-security-test:5.6.3'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor:2.6.7'
-    implementation 'org.mapstruct:mapstruct-jdk8:1.2.0.Final'
-    annotationProcessor 'org.mapstruct:mapstruct-processor:1.2.0.Final'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-cache', version: '2.6.7'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis', version: '2.6.7'
+
 }
 
 tasks.named('test') {
