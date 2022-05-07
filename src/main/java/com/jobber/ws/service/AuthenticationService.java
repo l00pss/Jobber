@@ -1,6 +1,6 @@
 package com.jobber.ws.service;
 
-import com.jobber.ws.service.abstracts.user.EmployerService;
+import com.jobber.ws.service.abstracts.admin.AdminEmployerService;
 import com.jobber.ws.config.security.jwt.JwtTokenManager;
 import com.jobber.ws.model.dto.UserContext;
 import com.jobber.ws.model.entity.user.JUser;
@@ -22,7 +22,7 @@ import java.util.Base64;
 @RequiredArgsConstructor
 public class AuthenticationService {
 
-    private EmployerService userService;
+    private AdminEmployerService userService;
     private AuthenticationManager authenticationManager;
     private JwtTokenManager tokenManager;
 

@@ -1,6 +1,6 @@
 package com.jobber.ws.config.security.userdetail;
 
-import com.jobber.ws.service.abstracts.user.EmployerService;
+import com.jobber.ws.service.abstracts.admin.AdminEmployerService;
 import com.jobber.ws.model.dto.UserContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.User;
@@ -13,12 +13,12 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class AuthenticationUserDetailsService implements UserDetailsService {
 
-    private final EmployerService employerService;
+    private final AdminEmployerService adminEmployerService;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
-        UserContext userContext = employerService.load(email);
+        UserContext userContext = adminEmployerService.load(email);
         if(userContext == null) {
             throw new UsernameNotFoundException("User not found!");
         }
