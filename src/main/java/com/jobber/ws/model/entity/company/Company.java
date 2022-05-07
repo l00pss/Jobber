@@ -57,7 +57,7 @@ public final class Company implements FunctionVisibility {
     private Contact contact;
 
     @OneToOne
-    private Visibility visibility = Visibility.ACTIVE;
+    private Visibility visibility;
 
     @ManyToMany
     private Set<Worker> referenced;

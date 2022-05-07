@@ -8,9 +8,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
-@Configuration
-@EnableScheduling
-@EnableAsync
+
 public class TestScheduler implements SchedulService {
 
     @Async

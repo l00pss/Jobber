@@ -1,5 +1,6 @@
 package com.jobber.ws.model.entity.user;
 
+import com.jobber.ws.model.dto.credential.RegisterCredential;
 import com.jobber.ws.model.entity.company.Company;
 import com.jobber.ws.model.entity.company.Views;
 import com.jobber.ws.model.entity.curriculum.Curriculum;
@@ -49,5 +50,6 @@ public final class Worker extends JUser implements Comparable<Worker> {
     public int compareTo(@NotNull Worker o) {
         return 0;
     }
+
 
 }

@@ -8,9 +8,10 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.LockModeType;
+import java.util.UUID;
 
 @Repository
-public interface AdminEmployerRepository extends JpaRepository<Employer,Long> {
+public interface AdminEmployerRepository extends JpaRepository<Employer, UUID> {
 
     @Lock(LockModeType.READ)
     Employer findByUsername(@Param("username") String username);

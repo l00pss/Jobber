@@ -1,10 +1,10 @@
 package com.jobber.ws.model.entity.user;
 
+import com.jobber.ws.config.auditor.audit.abstracts.Auditable;
+import com.jobber.ws.config.auditor.audit.concretes.ProfileAuditable;
 import com.jobber.ws.model.dto.credential.RegisterCredential;
 import com.jobber.ws.model.entity.contact.Contact;
 import lombok.*;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -12,19 +12,17 @@ import java.util.List;
 
 @Entity
 @Table(name = "JUSER_PROFILE")
-@Data
+@Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserProfile {
+public class UserProfile extends ProfileAuditable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @OneToOne
     private JUser jUser;
-
-    @LastModifiedDate
-    private Date modifiedDate;
 
     @Column(name = "FIRST_NAME",nullable = false)
     private String firstname;

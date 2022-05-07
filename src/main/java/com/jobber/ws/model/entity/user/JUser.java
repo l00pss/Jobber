@@ -1,7 +1,7 @@
 package com.jobber.ws.model.entity.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.jobber.ws.config.audit.UserAuditor;
+import com.jobber.ws.config.auditor.audit.concretes.UserAuditable;
 import com.jobber.ws.model.dto.credential.RegisterCredential;
 import com.jobber.ws.model.entity.abstracts.FunctionVisibility;
 import com.jobber.ws.model.entity.other.Visibility;
@@ -11,10 +11,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.context.annotation.DependsOn;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -26,8 +22,8 @@ import java.util.UUID;
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Getter @AllArgsConstructor @NoArgsConstructor @Setter
-@EntityListeners(UserAuditor.class)
-public class JUser implements FunctionVisibility  , UserDetails {
+public class JUser extends UserAuditable implements FunctionVisibility  , UserDetails  {
+
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
@@ -35,12 +31,6 @@ public class JUser implements FunctionVisibility  , UserDetails {
             strategy = "org.hibernate.id.UUIDGenerator"
     )
     private UUID id;
-
-    @CreatedDate
-    private long createdDate;
-
-    @LastModifiedDate
-    private long modifiedDate;
 
     @OneToOne(fetch = FetchType.LAZY,
             cascade =  CascadeType.ALL,
@@ -100,8 +90,12 @@ public class JUser implements FunctionVisibility  , UserDetails {
 
 
     public JUser(RegisterCredential registerCredential){
+        this();
+        this.username = registerCredential.getUserName();
+        this.password = new Password(registerCredential.getPassword());
+        this.password.setJUser(this);
         this.jUserProfile = new UserProfile(registerCredential);
         this.jUserProfile.setJUser(this);
-        this.visibility = Visibility.ACTIVE;
+        //this.visibility = Visibility.getActive();
     }
 }

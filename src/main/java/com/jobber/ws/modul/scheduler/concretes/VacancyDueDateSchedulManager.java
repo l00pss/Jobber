@@ -9,9 +9,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 
 import java.time.LocalDate;
 
-@Configuration
-@EnableScheduling
-@EnableAsync
+
 public class VacancyDueDateSchedulManager implements SchedulService {
 
     @Async

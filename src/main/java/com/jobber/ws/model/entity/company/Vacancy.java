@@ -75,7 +75,7 @@ public class Vacancy implements FunctionVisibility {
     private List<Views> views;
 
     @OneToOne
-    private Visibility visibility = Visibility.ACTIVE;
+    private Visibility visibility;
 
     public Vacancy(NewVacancyDTO vacancyDTO){
         this.modificationDate = new Date();
@@ -85,7 +85,7 @@ public class Vacancy implements FunctionVisibility {
     }
 
     public void delete() {
-        this.visibility = Visibility.INACTIVE;
+        this.visibility = Visibility.getInstance();
     }
 
     @Override

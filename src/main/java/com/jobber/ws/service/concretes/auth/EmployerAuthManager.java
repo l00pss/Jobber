@@ -28,14 +28,14 @@ public class EmployerAuthManager implements AuthService {
 
     @Override
     public Response register(final RegisterCredential registerCredential) {
-        employerRepository.save(new Employer(registerCredential));
+        this.employerRepository.save(new Employer(registerCredential));
         return responseFactory.factorySuccessResult(ResponseMessage.SUCCESSFUL.get("200_100002"));
     }
 
     @Override
     @SneakyThrows(BadCredentialsException.class)
     public DataResponse<AuthenticationResponse> login(final String authorization) {
-        return responseFactory.factorySuccessDataResult(authenticationService.authenticate(authorization));
+        return responseFactory.factorySuccessDataResult(this.authenticationService.authenticate(authorization));
     }
 
     @Override

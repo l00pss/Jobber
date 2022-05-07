@@ -1,4 +1,4 @@
-package com.jobber.ws.util.exception.logic;
+package com.jobber.ws.util.exception.business;
 
 import com.jobber.ws.util.exception.core.BaseException;
 import com.jobber.ws.util.exception.JException;

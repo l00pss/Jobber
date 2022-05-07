@@ -1,8 +1,8 @@
 package com.jobber.ws.model.dto.credential;
 
 import com.jobber.ws.util.exception.core.BaseException;
-import com.jobber.ws.util.exception.logic.InvalidLengthException;
-import com.jobber.ws.util.exception.logic.NullValueException;
+import com.jobber.ws.util.exception.business.InvalidLengthException;
+import com.jobber.ws.util.exception.business.NullValueException;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
