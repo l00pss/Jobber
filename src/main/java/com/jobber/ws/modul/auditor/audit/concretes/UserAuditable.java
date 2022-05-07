@@ -1,10 +1,8 @@
-package com.jobber.ws.config.auditor.audit.concretes;
+package com.jobber.ws.modul.auditor.audit.concretes;
 
-import com.jobber.ws.config.auditor.audit.abstracts.Auditable;
-import com.jobber.ws.config.auditor.listener.abstracts.AuditListener;
-import com.jobber.ws.config.auditor.listener.concretes.UserAuditListener;
+import com.jobber.ws.modul.auditor.audit.abstracts.Auditable;
+import com.jobber.ws.modul.auditor.listener.concretes.UserAuditListener;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;

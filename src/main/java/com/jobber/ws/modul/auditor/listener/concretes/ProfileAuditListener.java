@@ -1,6 +1,6 @@
-package com.jobber.ws.config.auditor.listener.concretes;
+package com.jobber.ws.modul.auditor.listener.concretes;
 
-import com.jobber.ws.config.auditor.listener.abstracts.AuditListener;
+import com.jobber.ws.modul.auditor.listener.abstracts.AuditListener;
 import com.jobber.ws.model.entity.user.UserProfile;
 
 import javax.persistence.*;

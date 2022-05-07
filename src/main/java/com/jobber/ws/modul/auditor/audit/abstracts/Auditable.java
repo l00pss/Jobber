@@ -1,6 +1,5 @@
-package com.jobber.ws.config.auditor.audit.abstracts;
+package com.jobber.ws.modul.auditor.audit.abstracts;
 
-import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 

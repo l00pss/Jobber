@@ -1,7 +1,7 @@
 package com.jobber.ws.model.entity.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.jobber.ws.config.auditor.audit.concretes.UserAuditable;
+import com.jobber.ws.modul.auditor.audit.concretes.UserAuditable;
 import com.jobber.ws.model.dto.credential.RegisterCredential;
 import com.jobber.ws.model.entity.abstracts.FunctionVisibility;
 import com.jobber.ws.model.entity.other.Visibility;

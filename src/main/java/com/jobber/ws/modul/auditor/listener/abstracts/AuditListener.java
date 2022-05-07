@@ -1,6 +1,4 @@
-package com.jobber.ws.config.auditor.listener.abstracts;
-
-import javax.persistence.*;
+package com.jobber.ws.modul.auditor.listener.abstracts;
 
 
 public  interface AuditListener {

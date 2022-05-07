@@ -1,7 +1,6 @@
 package com.jobber.ws.model.entity.user;
 
-import com.jobber.ws.config.auditor.audit.abstracts.Auditable;
-import com.jobber.ws.config.auditor.audit.concretes.ProfileAuditable;
+import com.jobber.ws.modul.auditor.audit.concretes.ProfileAuditable;
 import com.jobber.ws.model.dto.credential.RegisterCredential;
 import com.jobber.ws.model.entity.contact.Contact;
 import lombok.*;

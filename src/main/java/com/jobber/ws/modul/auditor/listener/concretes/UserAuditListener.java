@@ -1,10 +1,11 @@
-package com.jobber.ws.config.auditor.listener.concretes;
+package com.jobber.ws.modul.auditor.listener.concretes;
 
-import com.jobber.ws.config.auditor.listener.abstracts.AuditListener;
+import com.jobber.ws.modul.auditor.listener.abstracts.AuditListener;
 
 import javax.persistence.*;
 
 public class UserAuditListener  implements AuditListener {
+
 
     @PrePersist
     @Override
@@ -43,5 +44,6 @@ public class UserAuditListener  implements AuditListener {
     @PostPersist
     public void postPersist(Object o) {
 
+        System.out.println("User post Persistence  ".concat(o.toString()));
     }
 }

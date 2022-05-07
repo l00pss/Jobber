@@ -18,6 +18,15 @@ import java.math.BigInteger;
 public class Log {
     @Id
     @Column(name = "ID")
-    private BigInteger id;
+    private Long id;
 
+    private String operation;
+
+    private String context;
+
+    public Log(String operation,String context){
+        this();
+        this.operation= operation;
+        this.context = context;
+    }
 }
