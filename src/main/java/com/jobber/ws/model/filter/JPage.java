@@ -17,7 +17,7 @@ public class JPage <T>{
         if(simplePageable.getPage()==(list.size() / simplePageable.getSize()) + 1
                 && list.size() % simplePageable.getSize() != 0)
         {
-
+            // FIXME: 08.05.22 Sonuncu seife olanda ozunu nece aparacaq? 3 page 20 Item isdiyirse 110 Itemlik list nece page edilecek?
         }
         this.page = list.subList(startIndex,endIndex);
     }
