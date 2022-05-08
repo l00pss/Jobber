@@ -1,4 +1,4 @@
-package com.jobber.ws.config.search.filter;
+package com.jobber.ws.model.filter.concretes;
 
 import org.springframework.stereotype.Component;
 

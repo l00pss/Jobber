@@ -46,6 +46,10 @@
   {
     "code" : "200_100011",
     "message": "$ adlı istifadəçi üçün təklif uğurla icra edildi"
+  },
+  {
+    "code" : "200_100012",
+    "message": "Sorğunuz üzrə bütün nəticələr"
   }
 
 ]

@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface GeneralCompanyRepository extends JpaRepository<Company,Long>, JpaSpecificationExecutor<Company> {
+public interface CommonCompanyRepository extends JpaRepository<Company,Long>, JpaSpecificationExecutor<Company> {
 }

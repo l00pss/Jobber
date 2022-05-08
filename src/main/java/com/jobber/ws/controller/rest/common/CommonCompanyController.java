@@ -3,7 +3,7 @@ package com.jobber.ws.controller.rest.common;
 
 import com.jobber.ws.service.abstracts.common.CommonCompanyService;
 import com.jobber.ws.util.response.factory.AbstractResponseFactory;
-import com.jobber.ws.config.search.filter.CompanyFilter;
+import com.jobber.ws.model.filter.concretes.CompanyFilter;
 import com.jobber.ws.model.dto.response.company.SimpleCompanyDTO;
 import com.jobber.ws.model.dto.response.company.ViewCompanyDTO;
 import com.jobber.ws.model.dto.response.vacancy.SimpleVacancyDTO;
@@ -24,10 +24,6 @@ public class CommonCompanyController {
     private final CommonCompanyService companyService;
     private final AbstractResponseFactory<String> abstractResponseFactory;
 
-    @GetMapping("/findAll")
-    public ResponseEntity<DataResponse<String>>findAll(){
-        return new ResponseEntity<>( abstractResponseFactory.factorySuccessDataResult("OKEY"),HttpStatus.OK);
-    }
 
     @PostMapping("/findAll")
     public ResponseEntity<DataResponse<List<SimpleCompanyDTO>>> findAll(@RequestBody SimplePageable pageable){
@@ -35,7 +31,7 @@ public class CommonCompanyController {
     }
 
     @PostMapping("/findByFilter")
-    public ResponseEntity<DataResponse<List<SimpleCompanyDTO>>> findByFilter(
+    public ResponseEntity<DataResponse<List<SimpleCompanyDTO>>> findAllByFilter(
             @RequestBody SimplePageable pageable,
             @RequestBody CompanyFilter vacancyFilter){
         return new ResponseEntity<>( HttpStatus.OK);
@@ -56,17 +52,15 @@ public class CommonCompanyController {
     }
 
 
-    @GetMapping("/findAllVacancy/{id}")
-    public ResponseEntity<DataResponse<List<SimpleVacancyDTO>>> findAllVacancy(
-            @PathVariable(name = "id") String companyId){
+    @PostMapping("/findAllVacancyOfCompany")
+    public ResponseEntity<DataResponse<List<SimpleVacancyDTO>>> findAllVacancyOfCompany(
+            @RequestParam String companyId,@RequestBody SimplePageable pageable){
         return new ResponseEntity<>( HttpStatus.OK);
     }
 
-    @GetMapping("/popularCompanies")
-    public ResponseEntity<DataResponse<List<SimpleVacancyDTO>>> findPopularCompanies(){
+    @PostMapping("/popularCompanies")
+    public ResponseEntity<DataResponse<List<SimpleVacancyDTO>>> findPopularCompanies(@RequestBody SimplePageable pageable){
         return new ResponseEntity<>( HttpStatus.OK);
     }
-
-
 
 }

@@ -36,7 +36,7 @@ public final class Company implements FunctionVisibility {
     private Employer employer;
 
     @Column(name = "IS_APPROVED",nullable = false)
-    private boolean isApproved = false;
+    private boolean isApproved = true;
 
     @Column(name = "NAME")
     private String name;
